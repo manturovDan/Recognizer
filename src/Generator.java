@@ -1,5 +1,7 @@
 import java.io.File;
 
+import man.dan.telgen.*;
+
 public class Generator {
     private long countRows;
     public static void main(String[] args) throws Exception {
@@ -18,15 +20,17 @@ public class Generator {
             File rowsFile = new File(args[2]);
             File ansFile;
 
-            if (args.length == 4) {
+            if (args.length == 4)
                 ansFile = new File(args[3]);
-            }
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
             System.exit(1);
         }
         System.out.println("Start");
+
+        for (int i = 0; i < 10; ++i)
+            System.out.println(correctFieldGenerator.generate());
 
     }
 }
