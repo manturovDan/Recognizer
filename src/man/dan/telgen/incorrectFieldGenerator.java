@@ -4,19 +4,21 @@ import java.util.Random;
 
 /*
     There are 8 types of error in rows:
-    0) illegal type                                              00000001
-    1) something instead of :                                    00000010
-    2) there are illegal symbols in a number (or not numbers)    00000100
-    3) number contains not 11 digits                             00001000
-    4) ,                                                         00010000
-    5) ?=                                                        00100000
-    6) inconsistency of body and type                            01000000
-    7) there are illegal symbols in the body                     10000000
+    0) illegal type                                              000000001
+    1) something instead of :                                    000000010
+    2) there are illegal symbols in a number (or not numbers)    000000100
+    3) number contains not 11 digits                             000001000
+    4) ,                                                         000010000
+    5) ;                                                         000100000
+    6) ?=                                                        001000000
+    7) inconsistency of body and type  (just exists body)        010000000
+    8) there are illegal symbols in the body                     100000000
 
     The number [1, 255] generates, combination of errors determines by masks
 */
 public class incorrectFieldGenerator {
     private static Random random = new Random();
+    private static final String charBan = "абвгдеёжзиклмнАПЫЫПЫВОЕ_ وزر د سکې سره ورکړئ שלם למכשף עם מטבע";
 
     private static int getNumSize(int hap) {
         int telSize = 11;
@@ -26,31 +28,36 @@ public class incorrectFieldGenerator {
     }
 
     public static String generate() {
-        int happening = random.nextInt(254) + 1;
+        int happening = random.nextInt(510) + 1;
+        if (happening == 511 + 127) happening += 255; //to avoid the situation when body is absent and errors are in this field only
+
         StringBuilder allRes = new StringBuilder();
         String[] numsPlace;
         boolean sBody = false;
 
-        if ((happening & 0b00000001) == 0b00000001) {  //0) illegal type
+        if ((happening & 0b000000001) == 0b000000001) {  //0) illegal type
             String typeMsg;
             do {
                 typeMsg = StringGenerator.generateStr(random.nextInt(20), random, true, true,true, true);
             } while (typeMsg.equals("tel") || typeMsg.equals("fax") || typeMsg.equals("sms"));
             allRes.append(typeMsg);
         }
-        else
+        else {
             allRes.append(mesType.values()[random.nextInt(mesType.values().length)].name());
+            if (allRes.toString().equals("sms") && happening == 128) //no error
+                happening = 130; // when type is sms body exists and if only 6th bit is one it is not error
+        }
 
 
-        if ((happening & 0b00000010) == 0b00000010) { //1) something instead of :
+        if ((happening & 0b000000010) == 0b000000010) { //1) something instead of :
             String delimiter = StringGenerator.generateStr(1, random, false, false,false, true);
-            if (!delimiter.equals(";"))
+            if (!delimiter.equals(":"))
                 allRes.append(delimiter);
         }
         else
             allRes.append(":");
 
-        if ((happening & 0b00000100) == 0b00000100) { //2) there are illegal symbols in a number (or not numbers)
+        if ((happening & 0b000000100) == 0b000000100) { //2) there are illegal symbols in a number (or not numbers)
             int numsCount = random.nextInt(11);
             numsPlace = new String[numsCount];
             for (int n = 0; n < numsCount; ++n)
@@ -63,28 +70,62 @@ public class incorrectFieldGenerator {
                 numsPlace[n] = StringGenerator.generateStr(getNumSize(happening), random, false, false, true, false);
         }
 
-        if ((happening & 0b00010000) == 0b00010000) { //4) something instead of ,
+        if ((happening & 0b000010000) == 0b000010000) { //4) something instead of ,
             StringBuilder buildNums = new StringBuilder(String.join(",", numsPlace));
-            System.out.println(buildNums);
-            int comma = -1;
-            do {
-                comma = buildNums.indexOf(",", comma + 1);
-                System.out.println("Comma: " + comma);
-            } while (comma != -1);
+            boolean correct = false;
+
+            while(!correct) {
+                int comma = -1;
+                while (true) {
+                    comma = buildNums.indexOf(",", comma + 1);
+                    if (comma == -1)
+                        break;
+                    String repl = StringGenerator.generateStr(random.nextInt(3) + 1, random, true, true, false, true);
+
+                    if (!repl.equals(","))
+                        correct = true;
+
+                    buildNums.replace(comma, comma + 1, repl);
+                }
+            }
+
+            allRes.append(buildNums);
         }
         else
             allRes.append(String.join(",", numsPlace));
 
 
-        if ((happening & 0b00100001) == 0b00100001) {
-            //System.out.println(5);
+        if ((happening & 0b000100000) == 0b000100000) { //5) ;
+            String delimiter = StringGenerator.generateStr(random.nextInt(3) + 1, random, false, false,false, true);
+            if (!delimiter.equals(";'"))
+                allRes.append(delimiter);
         }
-        if ((happening & 0b01000001) == 0b01000001) {
-            //System.out.println(6);
+        else
+            allRes.append(";");
+
+        if ((happening & 0b010000000) == 0b010000000) { //7) inconsistency of body and type  (just exists body)
+            if ((happening & 0b001000000) == 0b001000000) { //6) ?=
+                String delimiter = StringGenerator.generateStr(random.nextInt(5) + 1, random, false, false,false, true);
+                if (!delimiter.equals("?="))
+                    allRes.append(delimiter);
+            }
+            else
+                allRes.append("?=");
+
+            if ((happening & 0b100000000) == 0b100000000) { //7) there are illegal symbols in the body
+                int size = random.nextInt(66);
+                StringBuilder banStr = new StringBuilder(size);
+                for (int i = 0; i < size; ++i) {
+                    banStr.append(charBan.charAt(random.nextInt(charBan.length())));
+                }
+
+                allRes.append(banStr);
+            }
+            else
+                allRes.append(StringGenerator.generateStr(random.nextInt(63) + 1, random, true, true, true, true));
+
         }
-        if ((happening & 0b10000001) == 0b10000001) {
-            //System.out.println(7);
-        }
+
 
         return allRes.toString();
     }
