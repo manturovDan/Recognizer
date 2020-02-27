@@ -2,6 +2,8 @@ package man.dan.telgen;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Random;
 
 public class FileGen {
     private long count;
@@ -24,11 +26,29 @@ public class FileGen {
     }
 
     public void generate() throws IOException {
-        File writeF = new File(write);
-        writeF.createNewFile();
+        PrintWriter writeF = new PrintWriter(write, "UTF-8");
         if (ans != null) {
             File ansF = new File(ans);
-            ansF.createNewFile();
         }
+
+        String row;
+        Random random = new Random();
+
+        for (int c = 0; c < count; ++c) {
+            if (percent == 0) {
+                row = correctFieldGenerator.generate();
+            }
+            else {
+                int prob = random.nextInt(100) + 1;
+                if (prob <= percent)
+                    row = incorrectFieldGenerator.generate();
+                else
+                    row = correctFieldGenerator.generate();
+            }
+
+            writeF.println(row);
+        }
+
+        writeF.close();
     }
 }

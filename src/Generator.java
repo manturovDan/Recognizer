@@ -1,5 +1,3 @@
-import java.io.File;
-
 import man.dan.telgen.*;
 
 public class Generator {
