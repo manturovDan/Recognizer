@@ -27,28 +27,37 @@ public class FileGen {
 
     public void generate() throws IOException {
         PrintWriter writeF = new PrintWriter(write, "UTF-8");
-        if (ans != null) {
-            File ansF = new File(ans);
-        }
+        PrintWriter ansF = null;
+
+        if (ans != null)
+            ansF = new PrintWriter(ans);
 
         String row;
         Random random = new Random();
 
         for (int c = 0; c < count; ++c) {
+            boolean answ = true;
             if (percent == 0) {
                 row = correctFieldGenerator.generate();
             }
             else {
                 int prob = random.nextInt(100) + 1;
-                if (prob <= percent)
+                if (prob <= percent) {
                     row = incorrectFieldGenerator.generate();
+                    answ = false;
+                }
                 else
                     row = correctFieldGenerator.generate();
             }
 
             writeF.println(row);
+            if (ansF != null)
+                ansF.println(answ);
+
         }
 
         writeF.close();
+        if (ansF != null)
+            ansF.close();
     }
 }

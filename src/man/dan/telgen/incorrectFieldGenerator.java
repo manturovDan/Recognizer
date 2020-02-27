@@ -64,12 +64,12 @@ public class incorrectFieldGenerator {
             StringBuilder build = new StringBuilder(String.join(",", numsPlace));
             boolean correct = false;
 
-            while(!correct) {
+            bth: while(!correct) {
                 int comma = -1;
                 while (true) {
                     comma = build.indexOf(",", comma + 1);
                     if (comma == -1)
-                        break;
+                        break bth;
                     String repl = StringGenerator.generateStr(random.nextInt(3) + 1, random, true, true, false, true);
 
                     if (!repl.equals(","))
@@ -145,13 +145,11 @@ public class incorrectFieldGenerator {
                 happening = 130; // when type is sms body exists and if only 6th bit is one it is not error
         }
 
-
         allRes.append(colon(happening));
         numsPlace = getNums(happening);
         allRes.append(buildNums(happening, numsPlace));
         allRes.append(semicolon(happening));
         allRes.append(bodyConstructor(happening));
-
 
         return allRes.toString();
     }
