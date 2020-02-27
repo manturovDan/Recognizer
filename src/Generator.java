@@ -12,16 +12,14 @@ public class Generator {
                 throw new Exception("Input error");
             }
 
-            long countRows = Long.parseLong(args[0]);
-            int lie = Integer.parseInt(args[1]);
-            if (lie < 0 || lie > 100)
-                throw new ArithmeticException("Incorrect lie value");
+            FileGen gen;
 
-            File rowsFile = new File(args[2]);
-            File ansFile;
+            if (args.length == 3)
+                gen = new FileGen(Long.parseLong(args[0]), Integer.parseInt(args[1]), args[2]);
+            else
+                gen = new FileGen(Long.parseLong(args[0]), Integer.parseInt(args[1]), args[2], args[3]);
 
-            if (args.length == 4)
-                ansFile = new File(args[3]);
+            gen.generate();
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
