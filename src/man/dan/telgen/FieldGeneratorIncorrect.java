@@ -114,16 +114,17 @@ public class FieldGeneratorIncorrect extends FieldGenerator {
             if (random.nextInt(10) == 1)
                 bldr.append(StringGenerator.generateStr(random.nextInt(64) + 65, random, true, true, true, true));
             else {
-                StringBuilder ban = new StringBuilder();
-                for (int i = 0; i < random.nextInt(20) + 2; ++i)
-                    ban.append(charBan.charAt(random.nextInt(charBan.length())));
-
-                System.out.println(ban);
-
                 StringBuilder bodyBld = new StringBuilder(StringGenerator.generateStr(random.nextInt(64), random, true, true,true, true));
-                bodyBld.append(ban);
 
-                bldr.append(bodyBld);
+                if (bodyBld.length() > 0) {
+                    for (int i = 0; i < random.nextInt(20) + 2; ++i) {
+                        int repl = random.nextInt(bodyBld.length());
+                        String newc = String.valueOf(charBan.charAt(random.nextInt(charBan.length())));
+                        bodyBld.replace(repl, repl + 1, newc);
+                    }
+
+                    bldr.append(bodyBld);
+                }
             }
         }
 
