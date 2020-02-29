@@ -88,7 +88,7 @@ public class incorrectFieldGenerator {
     private static String semicolon(int happening) {
         if ((happening & 0b000100000) == 0b000100000) { //5) ;
             String delimiter = StringGenerator.generateStr(random.nextInt(3) + 1, random, false, false,false, true);
-            if (!delimiter.equals(";'"))
+            if (!delimiter.equals(";"))
                 return delimiter;
             else
                 return "";

@@ -9,17 +9,17 @@ public class FieldGenerator {
     protected static final int bodyProbNum = 1;
     protected static Random random = new Random();
 
-    protected static String catGen(StringBuilder bldr) {
+    protected String catGen(StringBuilder bldr) {
         String cat = String.valueOf(mesType.values()[random.nextInt(mesType.values().length)]);
         bldr.append(cat);
         return cat;
     }
 
-    protected static void colonGen(StringBuilder bldr) {
+    protected void colonGen(StringBuilder bldr) {
         bldr.append(":");
     }
 
-    protected static void numsGen(StringBuilder bldr) {
+    protected void numsGen(StringBuilder bldr) {
         int numTels = random.nextInt(numsTop) + 1;
         if (numTels > numsBorder) numTels = 1;
 
@@ -30,17 +30,17 @@ public class FieldGenerator {
         bldr.append(String.join(",", nums));
     }
 
-    protected static void semicolonGen(StringBuilder bldr) {
-        bldr.append(":");
+    protected void semicolonGen(StringBuilder bldr) {
+        bldr.append(";");
     }
 
-    protected static void bodyGen(StringBuilder bldr) {
+    protected void bodyGen(StringBuilder bldr) {
         if(random.nextInt(bodyProbDen) <= bodyProbNum) {
             bldr.append("?body=").append(StringGenerator.generateStr(random.nextInt(64) + 1, random, true, true, true, true));
         }
     }
 
-    public static String generate() {
+    public String generate() {
         StringBuilder bldr = new StringBuilder();
         catGen(bldr);
         colonGen(bldr);

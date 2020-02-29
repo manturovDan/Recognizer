@@ -35,19 +35,22 @@ public class FileGen {
         String row;
         Random random = new Random();
 
+        FieldGenerator trueGen = new FieldGenerator();
+        FieldGeneratorIncorrect falseGen = new FieldGeneratorIncorrect();
+
         for (int c = 0; c < count; ++c) {
             boolean answ = true;
             if (percent == 0) {
-                row = FieldGenerator.generate();
+                row = trueGen.generate();
             }
             else {
                 int prob = random.nextInt(100) + 1;
                 if (prob <= percent) {
-                    row = incorrectFieldGenerator.generate();
+                    row = falseGen.generate();
                     answ = false;
                 }
                 else
-                    row = FieldGenerator.generate();
+                    row = trueGen.generate();
             }
 
             writeF.println(row);
