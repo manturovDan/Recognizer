@@ -13,11 +13,12 @@ public class Recognizer {
         } catch (IOException e) {
             System.out.println("Error creating Input Stream");
         }
-        
+
         try (BufferedReader br = new BufferedReader(new InputStreamReader(target))) {
             String line;
+            RegAnalyzer regAnl = new RegAnalyzer();
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                System.out.println(line + " - " + regAnl.handle(line));
             }
         } catch (IOException e) {
             System.out.println("File reading error");

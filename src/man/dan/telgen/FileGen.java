@@ -38,7 +38,7 @@ public class FileGen {
         for (int c = 0; c < count; ++c) {
             boolean answ = true;
             if (percent == 0) {
-                row = correctFieldGenerator.generate();
+                row = FieldGenerator.generate();
             }
             else {
                 int prob = random.nextInt(100) + 1;
@@ -47,7 +47,7 @@ public class FileGen {
                     answ = false;
                 }
                 else
-                    row = correctFieldGenerator.generate();
+                    row = FieldGenerator.generate();
             }
 
             writeF.println(row);

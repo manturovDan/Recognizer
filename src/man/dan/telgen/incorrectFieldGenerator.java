@@ -126,8 +126,8 @@ public class incorrectFieldGenerator {
     }
 
     public static String generate() {
-        int happening = random.nextInt(510) + 1;
-        if (happening == 511 + 127) happening += 255; //to avoid the situation when body is absent and errors are in this field only
+        int happening = random.nextInt(511) + 1;
+        if (happening < 64) happening += 255; //to avoid the situation when body is absent and errors are in this field only
 
         StringBuilder allRes = new StringBuilder();
         String[] numsPlace;
