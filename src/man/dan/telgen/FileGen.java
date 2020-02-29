@@ -1,8 +1,8 @@
 package man.dan.telgen;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
 public class FileGen {
@@ -26,7 +26,7 @@ public class FileGen {
     }
 
     public void generate() throws IOException {
-        PrintWriter writeF = new PrintWriter(write, "UTF-8");
+        PrintWriter writeF = new PrintWriter(write, StandardCharsets.UTF_8);
         PrintWriter ansF = null;
 
         if (ans != null)

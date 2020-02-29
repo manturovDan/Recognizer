@@ -6,7 +6,7 @@ public class StringGenerator {
     private static final String charLower = "abcdefghijklmnopqrstuvwxyz";
     private static final String charUpper = charLower.toUpperCase();
     private static final String charNumber = "0123456789";
-    private static final String charSpec = "%,.!?;:&";
+    private static final String charSpec = "%,.!?";
 
 
     public static String generateStr(int length, Random random, boolean upper, boolean lower, boolean number, boolean spec) {

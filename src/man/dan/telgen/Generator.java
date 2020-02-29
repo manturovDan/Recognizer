@@ -1,7 +1,6 @@
-import man.dan.telgen.*;
+package man.dan.telgen;
 
 public class Generator {
-    private long countRows;
     public static void main(String[] args) throws Exception {
         try {
             if (args.length > 4 || args.length < 3) {
@@ -18,21 +17,15 @@ public class Generator {
                 gen = new FileGen(Long.parseLong(args[0]), Integer.parseInt(args[1]), args[2], args[3]);
 
             gen.generate();
+
+            System.out.println(args[0] + " rows are generated");
+            if (args.length == 4)
+                System.out.println("Answers are generated");
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
             System.exit(1);
         }
-        System.out.println("Start");
-
-        /*for (int i = 0; i < 10; ++i)
-            System.out.println(correctFieldGenerator.generate());
-
-        System.out.println("\n");
-
-        for (int i = 0; i < 10; ++i)
-            System.out.println(incorrectFieldGenerator.generate());
-
-         */
+        System.out.println("Finish");
     }
 }
