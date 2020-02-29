@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 public class Recognizer {
     public static void main(String[] args) throws Exception {
+        long m = System.currentTimeMillis();
         if (args.length != 1 && args.length != 2)
             throw new Exception("Invalid argument count");
 
@@ -21,6 +22,7 @@ public class Recognizer {
             HashMap<String, Integer> stat = new HashMap<String, Integer>();
 
             RegAnalyzer regAnl = new RegAnalyzer(stat);
+            System.out.println("Processing has started...");
             while ((line = br.readLine()) != null) {
                 //System.out.println(line + " - " + regAnl.handle(line));
                 regAnl.handle(line);
@@ -40,6 +42,8 @@ public class Recognizer {
             else {
                 System.out.println(stat);
             }
+
+            System.out.println("Time of processing: " + ((double) (System.currentTimeMillis() - m))/1000 + " seconds");
         } catch (IOException e) {
             System.out.println("File reading error");
         }
