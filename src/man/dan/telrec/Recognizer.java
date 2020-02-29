@@ -1,6 +1,7 @@
 package man.dan.telrec;
 
 import java.io.*;
+import java.util.HashMap;
 
 public class Recognizer {
     public static void main(String[] args) throws Exception {
@@ -16,10 +17,14 @@ public class Recognizer {
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(target))) {
             String line;
-            RegAnalyzer regAnl = new RegAnalyzer();
+            HashMap<String, Integer> stat = new HashMap<String, Integer>();
+
+            RegAnalyzer regAnl = new RegAnalyzer(stat);
             while ((line = br.readLine()) != null) {
                 System.out.println(line + " - " + regAnl.handle(line));
             }
+
+            System.out.println(stat);
         } catch (IOException e) {
             System.out.println("File reading error");
         }
