@@ -1,11 +1,12 @@
 package man.dan.telrec;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public class Recognizer {
     public static void main(String[] args) throws Exception {
-        if (args.length != 1)
+        if (args.length != 1 && args.length != 2)
             throw new Exception("Invalid argument count");
 
         InputStream target = null;
@@ -21,10 +22,24 @@ public class Recognizer {
 
             RegAnalyzer regAnl = new RegAnalyzer(stat);
             while ((line = br.readLine()) != null) {
-                System.out.println(line + " - " + regAnl.handle(line));
+                //System.out.println(line + " - " + regAnl.handle(line));
+                regAnl.handle(line);
             }
 
-            System.out.println(stat);
+            if (args.length == 2) {
+                try {
+                    PrintWriter writeStat = new PrintWriter(args[1], StandardCharsets.UTF_8);
+                    writeStat.println(stat);
+                    writeStat.close();
+                    System.out.println("Statistics was saved");
+                } catch (Exception e) {
+                    System.out.println("Error writing statistics to file. Writing to System.out");
+                    System.out.println(stat);
+                }
+            }
+            else {
+                System.out.println(stat);
+            }
         } catch (IOException e) {
             System.out.println("File reading error");
         }
