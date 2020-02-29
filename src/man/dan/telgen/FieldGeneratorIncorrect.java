@@ -129,7 +129,9 @@ public class FieldGeneratorIncorrect extends FieldGenerator {
         }
 
         if (bodyEr == 0) {
-            super.bodyGen(bldr);
+            if(random.nextInt(bodyProbDen) <= bodyProbNum) {
+                bldr.append(StringGenerator.generateStr(random.nextInt(64) + 1, random, true, true, true, true));
+            }
         }
     }
 

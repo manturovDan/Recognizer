@@ -5,7 +5,7 @@ import java.util.Random;
 public class FieldGenerator {
     protected static final int numsTop = 20;
     protected static final int numsBorder = 10;
-    protected static final int bodyProbDen = 2;
+    protected static final int bodyProbDen = 3;
     protected static final int bodyProbNum = 1;
     protected static Random random = new Random();
 
