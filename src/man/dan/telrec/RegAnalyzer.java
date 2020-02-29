@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class RegAnalyzer {
     private static final String numbersReg = "((?:[0-9]{11},)*)([0-9]{11});";
     private static final String regExFT = "^(?:tel|fax):" + numbersReg;
-    private static final String regExSMS = "^sms:" + numbersReg + "(?:\\?body=([0-9a-zA-Z%,.!?]*))?$";
+    private static final String regExSMS = "^sms:" + numbersReg + "(?:\\?body=([0-9a-zA-Z%,.!?]{1,64}))?$";
     private Pattern patternFT;
     private Pattern patternSMS;;
 

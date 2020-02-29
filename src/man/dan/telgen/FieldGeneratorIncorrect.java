@@ -1,18 +1,19 @@
 package man.dan.telgen;
 
 public class FieldGeneratorIncorrect extends FieldGenerator {
-    private static final String charBan = "абвгдеёжзиклмнАПЫЫПЫВОЕ_ وزر د سکې سره ورکړئ שלם למכשף עם מטבע";
+    private static final String charBan = "абвгдеёжзиклмнАПЫЫПЫВОЕ_وزردسکېسرهورکړئשלםלמכשףעמטבע";
 
-    protected void catGen(int happening, StringBuilder bldr) {
+    protected String catGen(int happening, StringBuilder bldr) {
         if ((happening & 0b000001) == 0b000001) { //0) illegal type
             String typeMsg;
             do {
                 typeMsg = StringGenerator.generateStr(random.nextInt(20), random, true, true,true, true);
             } while (typeMsg.equals("tel") || typeMsg.equals("fax") || typeMsg.equals("sms"));
             bldr.append(typeMsg);
+            return typeMsg;
         }
         else
-            super.catGen(bldr);
+            return super.catGen(bldr);
 
     }
 
@@ -79,26 +80,85 @@ public class FieldGeneratorIncorrect extends FieldGenerator {
             super.semicolonGen(bldr);
     }
 
+    protected void bodyGen (int happening, StringBuilder bldr, String cat) {
+        int bodyEr;
+        if (happening == 0) {
+            if (cat.equals("sms"))
+                bodyEr = random.nextInt(3) + 1;
+            else
+                bodyEr = random.nextInt(4);
+
+
+        }
+        else {
+            if (random.nextBoolean()) // or not generate
+                bodyEr = random.nextInt(4);
+            else
+                return;
+        }
+
+        badBody(bodyEr, bldr);
+    }
+
+    protected void badBody(int bodyEr, StringBuilder bldr) {
+        if ((bodyEr & 0b01) == 0b01) { //0) ?=
+            String delimiter = StringGenerator.generateStr(10, random, true, true,true, true);
+            if (!delimiter.equals("?body="))
+                bldr.append(delimiter);
+        }
+        else
+            bldr.append("?body=");
+
+
+        if ((bodyEr & 0b10) == 0b10) {
+            if (random.nextInt(10) == 1)
+                bldr.append(StringGenerator.generateStr(random.nextInt(64) + 65, random, true, true, true, true));
+            else {
+                StringBuilder ban = new StringBuilder();
+                for (int i = 0; i < random.nextInt(20) + 2; ++i)
+                    ban.append(charBan.charAt(random.nextInt(charBan.length())));
+
+                System.out.println(ban);
+
+                StringBuilder bodyBld = new StringBuilder(StringGenerator.generateStr(random.nextInt(64), random, true, true,true, true));
+                bodyBld.append(ban);
+
+                bldr.append(bodyBld);
+            }
+        }
+
+        if (bodyEr == 0) {
+            super.bodyGen(bldr);
+        }
+    }
+
     public String generate() {
 
         /*
-        There are 6 common types of error in rows:
-        0) illegal type                                              000001
-        1) something instead of :                                    000010
-        2) there are illegal symbols in a number (or not numbers)    000100
-        3) number contains not 11 digits                             001000
-        4) ,                                                         010000
-        5) ;                                                         100000
+            There are 6 common types of error in rows:
+            0) illegal type                                              000001
+            1) something instead of :                                    000010
+            2) there are illegal symbols in a number (or not numbers)    000100
+            3) number contains not 11 digits                             001000
+            4) ,                                                         010000
+            5) ;                                                         100000
          */
 
         int common = random.nextInt(64);
         StringBuilder bldr = new StringBuilder();
 
-        catGen(common, bldr);
+        String cat = catGen(common, bldr);
         colonGen(common, bldr);
         numsGen(common, bldr);
         semicolonGen(common, bldr);
-        //bodyGen(bldr);
+
+        /*
+            There two three types of error in body
+            0) ?body=
+            1) there are illegal symbols in the body
+         */
+
+        bodyGen(common, bldr, cat);
 
         return bldr.toString();
     }
