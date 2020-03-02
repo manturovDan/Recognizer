@@ -25,7 +25,7 @@
         }
 
         colon [correctHeader()]
-        StartNum {
+        InputNum {
             newNum();
         }
 
@@ -33,20 +33,20 @@
         Error {}
     }
 
-    StartNum {
-        digit (dig : int) [numCorrect()]
-        StartNum
+    InputNum {
+        digit (dig : int) [AddNumCorrect()]
+        InputNum
         {
             addDigitToNum(dig);
         }
 
-        comma [endNum()]
-        StartNum {
+        comma [endOfNum()]
+        InputNum {
             saveNum();
             newNum();
         }
 
-        semicolon [endNum()]
+        semicolon [endOfNum()]
         bodyAvailable {
             saveNum();
         }
@@ -107,10 +107,10 @@
     }
 
     inBody {
-        bodySymbols (symb : char) [bodyInputEnable]
-        inBody { } //we don't save the body and may to do it if we want
+        bodySymbols [bodyInputEnable]
+        inBody { newBodySymbol(); } //we don't save the body and may to do it if we want
 
-        EOF
+        EOS[notEmptyBody()]
         Correct {}
 
         Default
