@@ -42,11 +42,12 @@ public class FieldGenerator {
 
     public String generate() {
         StringBuilder bldr = new StringBuilder();
-        catGen(bldr);
+        String cat = catGen(bldr);
         colonGen(bldr);
         numsGen(bldr);
         semicolonGen(bldr);
-        bodyGen(bldr);
+        if (cat.equals("sms"))
+            bodyGen(bldr);
 
         return bldr.toString();
     }
