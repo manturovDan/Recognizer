@@ -1,6 +1,8 @@
 package man.dan.smc;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.regex.Pattern;
 
 public class RecognizerCodegen {
     private RecognizerCodegenContext _fsm;
@@ -13,10 +15,22 @@ public class RecognizerCodegen {
     private int bodySize = 0;
     private boolean correct = false;
 
+    private HashMap<String, Integer> statistics;
+
     public RecognizerCodegen() {
         _fsm = new RecognizerCodegenContext(this);
         _is_acceptable = false;
+
+
+        statistics = new HashMap<String, Integer>();
     }
+
+    public RecognizerCodegen(HashMap<String, Integer> stat) {
+        this();
+        statistics = stat;
+    }
+
+    public String toStringImpl() { return statistics.toString(); }
 
     private StringBuilder headerBld = new StringBuilder(3);
 
@@ -72,13 +86,24 @@ public class RecognizerCodegen {
 
     public boolean bodyInputEnable() { return bodySize < 64; }
 
+    public boolean notEmptyBody() { return bodySize > 0; }
+
     public void newBodySymbol() {
         if (bodySize == 64)
             return;
         ++bodySize;
     }
 
-    public void rowCorrect() { correct = true; }
+    public void rowCorrect() {
+        for (String n : numbers) {
+            if (statistics.containsKey(n))
+                statistics.put(n, statistics.get(n) + 1);
+            else
+                statistics.put(n, 1);
+        }
+
+        correct = true;
+    }
 
     public boolean handle(String row) {
         int l;
@@ -114,6 +139,7 @@ public class RecognizerCodegen {
 
         _fsm.EOS();
 
+        System.out.println(correct);
         return correct;
     }
 

@@ -445,7 +445,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (correctHeader())
+        if (ctxt.correctHeader())
         {
             exitState();
 
@@ -475,7 +475,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (isPlaceInHeader())
+        if (ctxt.isPlaceInHeader())
         {
             exitState();
 
@@ -533,7 +533,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (endOfNum())
+        if (ctxt.endOfNum())
         {
             exitState();
 
@@ -564,7 +564,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (AddNumCorrectness())
+        if (ctxt.AddNumCorrectness())
         {
             exitState();
 
@@ -594,7 +594,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (endOfNum())
+        if (ctxt.endOfNum())
         {
             exitState();
 
@@ -674,7 +674,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (isBodyEn())
+        if (ctxt.isBodyEn())
         {
             exitState();
 
@@ -1007,7 +1007,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (notEmptyBody())
+        if (ctxt.notEmptyBody())
         {
             exitState();
 
@@ -1037,7 +1037,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (bodyInputEnable())
+        if (ctxt.bodyInputEnable())
         {
             exitState();
 
@@ -1067,7 +1067,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (bodyInputEnable())
+        if (ctxt.bodyInputEnable())
         {
             exitState();
 
@@ -1097,7 +1097,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (bodyInputEnable())
+        if (ctxt.bodyInputEnable())
         {
             exitState();
 
@@ -1127,7 +1127,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (bodyInputEnable())
+        if (ctxt.bodyInputEnable())
         {
             exitState();
 
@@ -1157,7 +1157,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (bodyInputEnable())
+        if (ctxt.bodyInputEnable())
         {
             exitState();
 
@@ -1187,7 +1187,7 @@ public class RecognizerCodegenContext
     {
         final int stateId = _state.getId();
 
-        if (bodyInputEnable())
+        if (ctxt.bodyInputEnable())
         {
             exitState();
 

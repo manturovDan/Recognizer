@@ -18,12 +18,12 @@
     }
 
     GetHead {
-        smallLetter(letter : char) [isPlaceInHeader()]
+        smallLetter(letter : char) [ctxt.isPlaceInHeader()]
         GetHead {
             addToHead(letter);
         }
 
-        colon [correctHeader()]
+        colon [ctxt.correctHeader()]
         InputNum {
             newNum();
         }
@@ -33,19 +33,19 @@
     }
 
     InputNum {
-        digit (dig : int) [AddNumCorrectness()]
+        digit (dig : int) [ctxt.AddNumCorrectness()]
         InputNum
         {
             addDigitToNum(dig);
         }
 
-        comma [endOfNum()]
+        comma [ctxt.endOfNum()]
         InputNum {
             saveNum();
             newNum();
         }
 
-        semicolon [endOfNum()]
+        semicolon [ctxt.endOfNum()]
         bodyAvailable {
             saveNum();
         }
@@ -58,7 +58,7 @@
         EOS
         Correct { rowCorrect(); }
 
-        question [isBodyEn()]
+        question [ctxt.isBodyEn()]
         BodyQ { }
 
         Default
@@ -107,25 +107,25 @@
 
     inBody {
         //we don't save the body and may to do it if we want
-        smallLetter [bodyInputEnable()]
+        smallLetter [ctxt.bodyInputEnable()]
         inBody { newBodySymbol(); }
 
-        digit [bodyInputEnable()]
+        digit [ctxt.bodyInputEnable()]
         inBody { newBodySymbol(); }
 
-        bigLetter [bodyInputEnable()]
+        bigLetter [ctxt.bodyInputEnable()]
         inBody { newBodySymbol(); }
 
-        comma [bodyInputEnable()]
+        comma [ctxt.bodyInputEnable()]
         inBody { newBodySymbol(); }
 
-        percentOrExclamationoOrDot [bodyInputEnable()]
+        percentOrExclamationoOrDot [ctxt.bodyInputEnable()]
         inBody { newBodySymbol(); }
 
-        question [bodyInputEnable()]
+        question [ctxt.bodyInputEnable()]
         inBody { newBodySymbol(); }
 
-        EOS[notEmptyBody()]
+        EOS [ctxt.notEmptyBody()]
         Correct { rowCorrect(); }
 
         Default
