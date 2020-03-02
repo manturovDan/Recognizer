@@ -1,0 +1,19 @@
+%package man.dan.smc
+
+%class RecognizerCodegenSMContext
+%fsmclass RecognizerCodegenStateMachine
+
+%access public
+%start MAP_NAME::StartState
+
+%map MAP_NAME %%
+    StartState {
+
+        transition
+        NextState {
+
+        }
+    }
+
+    NextState {}
+%%
