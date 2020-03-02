@@ -56,7 +56,7 @@
 
     bodyAvailable {
         EOS
-        Correct { rowCorrect(); }
+        StartState { rowCorrect(); }
 
         question [ctxt.isBodyEn()]
         BodyQ { }
@@ -107,10 +107,10 @@
 
     inBody {
         //we don't save the body and may to do it if we want
-        smallLetter [ctxt.bodyInputEnable()]
+        smallLetter (letter : char) [ctxt.bodyInputEnable()]
         inBody { newBodySymbol(); }
 
-        digit [ctxt.bodyInputEnable()]
+        digit (dig : int) [ctxt.bodyInputEnable()]
         inBody { newBodySymbol(); }
 
         bigLetter [ctxt.bodyInputEnable()]
@@ -126,19 +126,23 @@
         inBody { newBodySymbol(); }
 
         EOS [ctxt.notEmptyBody()]
-        Correct { rowCorrect(); }
+        StartState { rowCorrect(); }
 
         Default
         Error {}
     }
 
     Correct {
-
+        Default
+        StartState { }
     }
 
     Error {
         error
         nil {}
+
+        EOS
+        StartState { }
     }
 
     NextState {}

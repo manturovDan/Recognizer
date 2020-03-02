@@ -1,5 +1,6 @@
 package man.dan.smc;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -14,6 +15,7 @@ public class RecognizerCodegen {
     private boolean inNumEntering = false;
     private int bodySize = 0;
     private boolean correct = false;
+    private StringBuilder headerBld = new StringBuilder(3);
 
     private HashMap<String, Integer> statistics;
 
@@ -31,8 +33,6 @@ public class RecognizerCodegen {
     }
 
     public String toStringImpl() { return statistics.toString(); }
-
-    private StringBuilder headerBld = new StringBuilder(3);
 
     public boolean addToHead(char symb) {
         if (headerBld.length() != headerBld.capacity()) {
@@ -106,6 +106,15 @@ public class RecognizerCodegen {
     }
 
     public boolean handle(String row) {
+
+        bodyEn = false;
+        numbers.clear();
+        currentPhone.setLength(0);
+        headerBld.setLength(0);
+        inNumEntering = false;
+        bodySize = 0;
+        correct = false;
+
         int l;
         int length;
         int code;
@@ -117,8 +126,11 @@ public class RecognizerCodegen {
             symb = row.charAt(l);
             code = (int) symb;
 
+
+            //System.out.println(symb + " - " + _fsm.getState());
+
             if (code >= 97 && code <= 122)
-                _fsm.smallLetter();
+                _fsm.smallLetter(symb);
             else if (code == 58)
                 _fsm.colon();
             else if (code == 59)
@@ -133,6 +145,8 @@ public class RecognizerCodegen {
                 _fsm.bigLetter();
             else if (code == 37 || code == 33 || code == 46)
                 _fsm.percentOrExclamationoOrDot();
+            else if (code >= 48 && code <= 57)
+                _fsm.digit(symb);
             else
                 _fsm.error();
         }

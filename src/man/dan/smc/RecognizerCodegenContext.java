@@ -82,7 +82,7 @@ public class RecognizerCodegenContext
         try
         {
             final TransitionHandle th =
-                getState().transition(EOS29_TRANSITION_ID);
+                getState().transition(EOS33_TRANSITION_ID);
 
             (th.handle()).invokeExact(this);
         }
@@ -160,34 +160,13 @@ public class RecognizerCodegenContext
         return;
     }
 
-    public void digit()
-    {
-        _transition = "digit";
-        try
-        {
-            final TransitionHandle th =
-                getState().transition(digit24_TRANSITION_ID);
-
-            (th.handle()).invokeExact(this);
-        }
-        catch (Throwable tex)
-        {
-            if (_debugFlag == true)
-            {
-                tex.printStackTrace(_debugStream);
-            }
-        }
-        _transition = "";
-        return;
-    }
-
     public void digit(int dig)
     {
         _transition = "digit";
         try
         {
             final TransitionHandle th =
-                getState().transition(digit6_TRANSITION_ID);
+                getState().transition(digit24_TRANSITION_ID);
 
             if (th.isDefault() == true)
             {
@@ -236,7 +215,7 @@ public class RecognizerCodegenContext
         try
         {
             final TransitionHandle th =
-                getState().transition(error31_TRANSITION_ID);
+                getState().transition(error32_TRANSITION_ID);
 
             (th.handle()).invokeExact(this);
         }
@@ -314,34 +293,13 @@ public class RecognizerCodegenContext
         return;
     }
 
-    public void smallLetter()
-    {
-        _transition = "smallLetter";
-        try
-        {
-            final TransitionHandle th =
-                getState().transition(smallLetter23_TRANSITION_ID);
-
-            (th.handle()).invokeExact(this);
-        }
-        catch (Throwable tex)
-        {
-            if (_debugFlag == true)
-            {
-                tex.printStackTrace(_debugStream);
-            }
-        }
-        _transition = "";
-        return;
-    }
-
     public void smallLetter(char letter)
     {
         _transition = "smallLetter";
         try
         {
             final TransitionHandle th =
-                getState().transition(smallLetter19_TRANSITION_ID);
+                getState().transition(smallLetter23_TRANSITION_ID);
 
             if (th.isDefault() == true)
             {
@@ -661,7 +619,7 @@ public class RecognizerCodegenContext
         }
         finally
         {
-            setState(_States[MAP_NAME_Correct_STATE_ID]);
+            setState(_States[MAP_NAME_StartState_STATE_ID]);
         }
 
         enterState();
@@ -1018,7 +976,7 @@ public class RecognizerCodegenContext
             }
             finally
             {
-                setState(_States[MAP_NAME_Correct_STATE_ID]);
+                setState(_States[MAP_NAME_StartState_STATE_ID]);
             }
 
             enterState();
@@ -1093,7 +1051,7 @@ public class RecognizerCodegenContext
     }
 
 
-    private void MAP_NAME_inBody_digit()
+    private void MAP_NAME_inBody_digit(int dig)
     {
         final int stateId = _state.getId();
 
@@ -1183,7 +1141,7 @@ public class RecognizerCodegenContext
     }
 
 
-    private void MAP_NAME_inBody_smallLetter()
+    private void MAP_NAME_inBody_smallLetter(char letter)
     {
         final int stateId = _state.getId();
 
@@ -1218,8 +1176,56 @@ public class RecognizerCodegenContext
     //-----------------------------------------------------------
 
     //-----------------------------------------------------------
+    // MAP_NAME.Correct State Transitions.
+    //
+
+    private void MAP_NAME_Correct_Default()
+    {
+        final int stateId = _state.getId();
+
+        exitState();
+
+        try
+        {
+        }
+        finally
+        {
+            setState(_States[MAP_NAME_StartState_STATE_ID]);
+        }
+
+        enterState();
+
+        return;
+    }
+
+
+    //
+    // end of MAP_NAME.Correct State Transitions.
+    //-----------------------------------------------------------
+
+    //-----------------------------------------------------------
     // MAP_NAME.Error State Transitions.
     //
+
+    private void MAP_NAME_Error_EOS()
+    {
+        final int stateId = _state.getId();
+
+        exitState();
+
+        try
+        {
+        }
+        finally
+        {
+            setState(_States[MAP_NAME_StartState_STATE_ID]);
+        }
+
+        enterState();
+
+        return;
+    }
+
 
     private void MAP_NAME_Error_error()
     {
@@ -1269,21 +1275,19 @@ public class RecognizerCodegenContext
 
     private static final int STATE_COUNT = 13;
 
-    private static final int EOS29_TRANSITION_ID = 1;
+    private static final int EOS33_TRANSITION_ID = 1;
     private static final int bigLetter25_TRANSITION_ID = 2;
     private static final int colon4_TRANSITION_ID = 3;
     private static final int comma26_TRANSITION_ID = 4;
     private static final int digit24_TRANSITION_ID = 5;
-    private static final int digit6_TRANSITION_ID = 6;
-    private static final int equal21_TRANSITION_ID = 7;
-    private static final int error31_TRANSITION_ID = 8;
-    private static final int percentOrExclamationoOrDot27_TRANSITION_ID = 9;
-    private static final int question28_TRANSITION_ID = 10;
-    private static final int semicolon8_TRANSITION_ID = 11;
-    private static final int smallLetter23_TRANSITION_ID = 12;
-    private static final int smallLetter19_TRANSITION_ID = 13;
+    private static final int equal21_TRANSITION_ID = 6;
+    private static final int error32_TRANSITION_ID = 7;
+    private static final int percentOrExclamationoOrDot27_TRANSITION_ID = 8;
+    private static final int question28_TRANSITION_ID = 9;
+    private static final int semicolon8_TRANSITION_ID = 10;
+    private static final int smallLetter23_TRANSITION_ID = 11;
 
-    private static final int TRANSITION_COUNT = 14;
+    private static final int TRANSITION_COUNT = 12;
 
     private static final MethodType[] TRANSITION_TYPES =
     {
@@ -1292,9 +1296,7 @@ public class RecognizerCodegenContext
         NO_ARGS_TYPE,
         NO_ARGS_TYPE,
         NO_ARGS_TYPE,
-        NO_ARGS_TYPE,
         MethodType.methodType(void.class, int.class),
-        NO_ARGS_TYPE,
         NO_ARGS_TYPE,
         NO_ARGS_TYPE,
         NO_ARGS_TYPE,
@@ -1402,10 +1404,12 @@ public class RecognizerCodegenContext
 
         new String[]
         {
+            "Default"
         },
 
         new String[]
         {
+            "EOS",
             "error"
         },
 
@@ -1422,13 +1426,11 @@ public class RecognizerCodegenContext
         "colon",
         "comma",
         "digit",
-        "digit",
         "equal",
         "error",
         "percentOrExclamationoOrDot",
         "question",
         "semicolon",
-        "smallLetter",
         "smallLetter"
     };
 
