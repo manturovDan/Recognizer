@@ -9,10 +9,120 @@
 %map MAP_NAME %%
     StartState {
 
-        transition
-        NextState {
-
+        smallLetter(letter : char)
+        GetHead {
+            addToHead(letter);
         }
+
+        Default
+        Error {}
+    }
+
+    GetHead {
+        smallLetter(letter : char) [isPlaceInHeader()]
+        GetHead {
+            addToHead(letter);
+        }
+
+        colon [correctHeader()]
+        StartNum {
+            newNum();
+        }
+
+        Default
+        Error {}
+    }
+
+    StartNum {
+        digit (dig : int) [numCorrect()]
+        StartNum
+        {
+            addDigitToNum(dig);
+        }
+
+        comma [endNum()]
+        StartNum {
+            saveNum();
+            newNum();
+        }
+
+        semicolon [endNum()]
+        bodyAvailable {
+            saveNum();
+        }
+
+        Default
+        Error {}
+    }
+
+    bodyAvailable {
+        EOS
+        Correct {}
+
+        question [isBodyEn()]
+        BodyQ { }
+
+        Default
+        Error {}
+    }
+
+    BodyQ {
+        letterB
+        BodyB {}
+
+        Default
+        Error {}
+    }
+
+    BodyB {
+        letterO
+        BodyO {}
+
+        Default
+        Error {}
+    }
+
+    BodyO {
+        letterD
+        BodyD {}
+
+        Default
+        Error {}
+    }
+
+    BodyD {
+        letterY
+        BodyY {}
+
+        Default
+        Error {}
+    }
+
+    BodyY {
+        equal
+        inBody {}
+
+        Default
+        Error {}
+    }
+
+    inBody {
+        bodySymbols (symb : char) [bodyInputEnable]
+        inBody { } //we don't save the body and may to do it if we want
+
+        EOF
+        Correct {}
+
+        Default
+        Error {}
+    }
+
+    Correct {
+
+    }
+
+    Error {
+
     }
 
     NextState {}
