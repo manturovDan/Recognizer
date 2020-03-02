@@ -67,7 +67,7 @@
     }
 
     BodyQ {
-        letterB
+        smallLetter(letter : char) [isLetter("b")]
         BodyB {}
 
         Default
@@ -75,7 +75,7 @@
     }
 
     BodyB {
-        letterO
+        smallLetter(letter : char) [isLetter("o")]
         BodyO {}
 
         Default
@@ -83,7 +83,7 @@
     }
 
     BodyO {
-        letterD
+        smallLetter(letter : char) [isLetter("d")]
         BodyD {}
 
         Default
@@ -91,7 +91,7 @@
     }
 
     BodyD {
-        letterY
+        smallLetter(letter : char) [isLetter("y")]
         BodyY {}
 
         Default
@@ -107,8 +107,24 @@
     }
 
     inBody {
-        bodySymbols [bodyInputEnable]
-        inBody { newBodySymbol(); } //we don't save the body and may to do it if we want
+        //we don't save the body and may to do it if we want
+        smallLetter [bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        digit [bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        bigLetter [bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        comma [bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        percentOrExclamationoOrDot [bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        question [bodyInputEnable()]
+        inBody { newBodySymbol(); }
 
         EOS[notEmptyBody()]
         Correct {}

@@ -50,10 +50,30 @@ public class RecognizerCodegen {
         for (l = 0, length = row.length(); l < length; ++l) {
             symb = row.charAt(l);
             code = (int) symb;
-            if (code >= 97 && code <= 122) {
+
+            if (code >= 97 && code <= 122)
                 _fsm.smallLetter();
-            }
+            else if (code == 58)
+                _fsm.colon();
+            else if (code == 59)
+                _fsm.semicolon();
+            else if (code == 44)
+                _fsm.comma();
+            else if (code == 63)
+                _fsm.question();
+            else if (code == 61)
+                _fsm.equal();
+            else if (code >= 65 && code <= 90)
+                _fsm.bigLetter();
+            else if (code == 37 || code == 33 || code == 46)
+                _fsm.percentOrExclamationoOrDot();
+            else
+                _fsm.error();
         }
+
+        _fsm.EOS();
+
+        return true;
     }
 
     public String getHeader() {
