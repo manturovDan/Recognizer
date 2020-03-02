@@ -1,19 +1,24 @@
 package man.dan.smc;
 
-import man.dan.telrec.Recognizer;
+import java.util.ArrayList;
 
 public class RecognizerCodegen {
     private RecognizerCodegenContext _fsm;
     private boolean _is_acceptable;
 
     private boolean bodyEn = false;
+    private ArrayList<String> numbers = new ArrayList<String>();
+    private StringBuilder currentPhone = new StringBuilder(11);
+    private boolean inNumEntering = false;
+    private int bodySize = 0;
+    private boolean correct = false;
 
     public RecognizerCodegen() {
         _fsm = new RecognizerCodegenContext(this);
         _is_acceptable = false;
     }
 
-    private StringBuilder headerBld = new StringBuilder(10);
+    private StringBuilder headerBld = new StringBuilder(3);
 
     public boolean addToHead(char symb) {
         if (headerBld.length() != headerBld.capacity()) {
@@ -35,9 +40,45 @@ public class RecognizerCodegen {
             bodyEn = true;
             return true;
         }
-        else if(header.equals("fax") || header.equals("tel"))
-            return false;
+        else return header.equals("fax") || header.equals("tel");
     }
+
+    public void newNum() {
+        inNumEntering = true;
+        currentPhone.setLength(0);
+    }
+
+    public boolean AddNumCorrectness() {
+        return inNumEntering && (currentPhone.length() < currentPhone.capacity());
+    }
+
+    public void addDigitToNum(int dig) {
+        if (!inNumEntering || currentPhone.length() == currentPhone.capacity())
+            return;
+        currentPhone.append((char) dig);
+    }
+
+    public boolean endOfNum() {
+        return inNumEntering && (currentPhone.length() == currentPhone.capacity());
+    }
+
+    public void saveNum() {
+        if (!inNumEntering || currentPhone.length() == currentPhone.capacity())
+            return;
+        numbers.add(currentPhone.toString());
+    }
+
+    public boolean isBodyEn() { return bodyEn; }
+
+    public boolean bodyInputEnable() { return bodySize < 64; }
+
+    public void newBodySymbol() {
+        if (bodySize == 64)
+            return;
+        ++bodySize;
+    }
+
+    public void rowCorrect() { correct = true; }
 
     public boolean handle(String row) {
         int l;
@@ -45,7 +86,7 @@ public class RecognizerCodegen {
         int code;
         char symb;
 
-        _fsm.enterStateStae();
+        _fsm.enterStartState();
 
         for (l = 0, length = row.length(); l < length; ++l) {
             symb = row.charAt(l);
@@ -73,7 +114,7 @@ public class RecognizerCodegen {
 
         _fsm.EOS();
 
-        return true;
+        return correct;
     }
 
     public String getHeader() {
