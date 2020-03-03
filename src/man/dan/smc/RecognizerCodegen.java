@@ -153,7 +153,7 @@ public class RecognizerCodegen {
 
         _fsm.EOS();
 
-        System.out.println(correct);
+        //System.out.println(correct);
         return correct;
     }
 

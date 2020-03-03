@@ -49,6 +49,7 @@ public class FieldGenerator {
         if (cat.equals("sms"))
             bodyGen(bldr);
 
+        //System.out.println("true");
         return bldr.toString();
     }
 }

@@ -31,13 +31,16 @@ public class FieldGeneratorIncorrect extends FieldGenerator {
         int telSize = 11;
         if ((hap & 0b00001000) == 0b00001000)  //3) number contains not 11 digits
             telSize = random.nextInt(20);
+        if (telSize == 11)
+            telSize = 12;
         return telSize;
     }
 
     private static String buildNums(int happening, String[] numsPlace) {
         if ((happening & 0b010000) == 0b010000) { //4) something instead of ,
             String build = new String(String.join(",", numsPlace));
-            return build.replaceAll("[" + StringGenerator.charSpec + "]]", ",");
+            //return build.replaceAll("[" + StringGenerator.charSpec + "]]", ",");
+            return build.replaceAll(",", StringGenerator.generateStr(1, random, true, false,false, false));
         }
         else
             return String.join(",", numsPlace);
@@ -47,6 +50,8 @@ public class FieldGeneratorIncorrect extends FieldGenerator {
         int numTels = random.nextInt(numsTop) + 1;
         if (numTels > numsBorder) numTels = 1;
 
+        if (((happening & 0b010000) == 0b010000) && numTels <= 1) // , error
+            numTels += 2;
 
         boolean upper = false;
         boolean lower = false;
@@ -163,6 +168,9 @@ public class FieldGeneratorIncorrect extends FieldGenerator {
 
         bodyGen(common, bldr, cat);
 
+        //System.out.print(common + "");
+
+        //System.out.println(common + " " + bldr.toString());
         return bldr.toString();
     }
 }
