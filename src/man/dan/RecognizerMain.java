@@ -1,11 +1,14 @@
-package man.dan.smc;
+package man.dan;
+
+import man.dan.smc.RecognizerCodegen;
+import man.dan.telrec.RegAnalyzer;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
-public class Recognizer2 {
-    public static void main(String[] args) throws Exception {
+public class RecognizerMain {
+    public static void launch(String[] args, int mode) throws Exception {
         long m = System.currentTimeMillis();
         if (args.length != 1 && args.length != 2)
             throw new Exception("Invalid argument count");
@@ -21,12 +24,23 @@ public class Recognizer2 {
             String line;
             HashMap<String, Integer> stat = new HashMap<String, Integer>();
 
-            RecognizerCodegen regAnl = new RecognizerCodegen(stat);
             System.out.println("Processing has started...");
-            while ((line = br.readLine()) != null) {
-                //System.out.println(line + " - " + regAnl.handle(line));
-                regAnl.handle(line);
+
+            if (mode == 1) {
+                RegAnalyzer regAnl = new RegAnalyzer(stat);
+                while ((line = br.readLine()) != null) {
+                    //System.out.println(line + " - " + regAnl.handle(line));
+                    regAnl.handle(line);
+                }
             }
+            else if (mode == 2) {
+                RecognizerCodegen regAnl = new RecognizerCodegen(stat);
+                while ((line = br.readLine()) != null) {
+                    //System.out.println(line + " - " + regAnl.handle(line));
+                    regAnl.handle(line);
+                }
+            }
+            else throw new Exception ("Unknown Mode");
 
             if (args.length == 2) {
                 try {
