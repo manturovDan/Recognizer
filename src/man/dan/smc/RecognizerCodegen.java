@@ -77,7 +77,7 @@ public class RecognizerCodegen {
     }
 
     public void saveNum() {
-        if (!inNumEntering || currentPhone.length() == currentPhone.capacity())
+        if (!inNumEntering || currentPhone.length() != currentPhone.capacity())
             return;
         numbers.add(currentPhone.toString());
     }
@@ -96,6 +96,7 @@ public class RecognizerCodegen {
 
     public void rowCorrect() {
         for (String n : numbers) {
+            //System.out.println(n);
             if (statistics.containsKey(n))
                 statistics.put(n, statistics.get(n) + 1);
             else
@@ -154,6 +155,7 @@ public class RecognizerCodegen {
         _fsm.EOS();
 
         //System.out.println(correct);
+
         return correct;
     }
 
