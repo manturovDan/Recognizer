@@ -37,7 +37,7 @@ import java.util.HashMap;
 
     <DELIMETER_FT> {
         , { yybegin(NUMS_FT); }
-        ;$ { return 1; }
+        ;\n { return 1; }
         . { yybegin(YYINITIAL); }
         \n { yybegin(YYINITIAL); return 0; }
     }
@@ -58,7 +58,7 @@ import java.util.HashMap;
 
     <BODY> {
         (\?body=([0-9a-zA-Z%,.!?]{1,64}))?\n { yybegin(YYINITIAL); return 1; }
-        \n { yybegin(YYINITIAL); }
+        . { yybegin(YYINITIAL); }
     }
 
     <<EOF>> { System.out.println(statistics) ;return 3; }
