@@ -159,7 +159,7 @@ class Recognizer2Test {
                 i+=1;
             }
 
-            //System.out.println(statistics);
+            System.out.println(statistics);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -167,8 +167,8 @@ class Recognizer2Test {
         return statistics;
     }
 
-    public void statAnlTest(String statF) {
-        HashMap<String, Integer> statistics = statGet("k/1kw", "k/1ka", 1000);
+    public void statAnlTest(String writeF, String ansF, String statF, int count) {
+        HashMap<String, Integer> statistics = statGet(writeF, ansF, count);
         String line;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(statF))))) {
             if ((line = br.readLine()) == null) {
@@ -191,6 +191,50 @@ class Recognizer2Test {
 
     @Test
     public void stat1kTest() {
-        statAnlTest("k/1ks");
+        statAnlTest("k/1kw", "k/1ka","k/1ks_c", 1000);
+    }
+
+    @Test
+    public void stat1kTestCG() {
+        statAnlTest("k/1kw", "k/1ka","k/1ks_cg", 1000);
+    }
+
+    @Test
+    public void stat1kTestLEX() {
+        statAnlTest("k/1kw", "k/1ka","k/1ks_l", 1000);
+    }
+
+    ///////////////////////////////////////////
+
+    @Test
+    public void stat200kTest() {
+        statAnlTest("200k/w200k", "200k/a200k", "200k/s200k_c", 200000);
+    }
+
+    @Test
+    public void stat200kTestCG() {
+        statAnlTest("200k/w200k", "200k/a200k", "200k/s200k_cg", 200000);
+    }
+
+    @Test
+    public void stat200kTestLEX() {
+        statAnlTest("200k/w200k", "200k/a200k", "200k/s200k_l", 200000);
+    }
+
+    ///////////////////////////////////////////
+
+    @Test
+    public void stat5mTest() {
+        statAnlTest("5m/5mw", "5m/5ma", "5m/5ms_c", 5000000);
+    }
+
+    @Test
+    public void stat5mTestCG() {
+        statAnlTest("5m/5mw", "5m/5ma", "5m/5ms_cg", 5000000);
+    }
+
+    @Test
+    public void stat5mTestLA() {
+        statAnlTest("5m/5mw", "5m/5ma", "5m/5ms_l", 5000000);
     }
 }
