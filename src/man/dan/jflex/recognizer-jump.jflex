@@ -7,30 +7,73 @@ import java.util.HashMap;
 %class RecognizerJF
 %unicode
 %int
-%debug
 %line
 
 %{
-    private HashMap<String, Integer> statistics = new HashMap<String, Integer>();
-    private ArrayList<String> curNums = new ArrayList<String>();
+    private static HashMap<String, Integer> statistics = new HashMap<String, Integer>();
+    private static ArrayList<String> curNums = new ArrayList<String>();
 
-    void collectNumFAE(String num) {
+    private static void collectNumFAE(String num) {
         if (statistics.containsKey(num))
             statistics.put(num, statistics.get(num) + 1);
         else
             statistics.put(num, 1);
     }
 
-    void addNum(String num) {
+    private static void addNum(String num) {
         curNums.add(num);
     }
 
-    void clearNums() { curNums.clear(); }
+    private static void clearNums() { curNums.clear(); }
 
-    void saveNums() {
+    private static void saveNums() {
         for (String n : curNums) {
             collectNumFAE(n);
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        long m = System.currentTimeMillis();
+        if (args.length != 1 && args.length != 2)
+            throw new Exception("Invalid argument count");
+
+
+        String encodingName = "UTF-8";
+        try {
+            java.nio.charset.Charset.forName(encodingName); // Side-effect: is encodingName valid?
+        } catch (Exception e) {
+            System.out.println("Invalid encoding '" + encodingName + "'");
+            return;
+        }
+
+        RecognizerJF scanner = null;
+        try {
+            java.io.FileInputStream stream = new java.io.FileInputStream(args[0]);
+            java.io.Reader reader = new java.io.InputStreamReader(stream, encodingName);
+            scanner = new RecognizerJF(reader);
+            int retStatus;
+            do {
+                retStatus = scanner.yylex();
+                if (retStatus == 1)
+                    saveNums();
+
+                clearNums();
+                System.out.println(retStatus);
+            } while (!scanner.zzAtEOF);
+
+        }
+        catch (java.io.FileNotFoundException e) {
+            System.out.println("File not found : \""+args[1]+"\"");
+        }
+        catch (java.io.IOException e) {
+            System.out.println("IO error scanning file \""+args[1]+"\"");
+            System.out.println(e);
+        }
+        catch (Exception e) {
+            System.out.println("Unexpected exception:");
+            e.printStackTrace();
+        }
+
     }
 %}
 

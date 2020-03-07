@@ -17,7 +17,6 @@ class RecognizerJF {
 
   /** initial size of the lookahead buffer */
   private static final int ZZ_BUFFERSIZE = 16384;
-  private static final String ZZ_NL = System.getProperty("line.separator");
 
   /** lexical states */
   public static final int YYINITIAL = 0;
@@ -342,26 +341,70 @@ class RecognizerJF {
   private int zzFinalHighSurrogate = 0;
 
   /* user code: */
-    private HashMap<String, Integer> statistics = new HashMap<String, Integer>();
-    private ArrayList<String> curNums = new ArrayList<String>();
+    private static HashMap<String, Integer> statistics = new HashMap<String, Integer>();
+    private static ArrayList<String> curNums = new ArrayList<String>();
 
-    void collectNumFAE(String num) {
+    private static void collectNumFAE(String num) {
         if (statistics.containsKey(num))
             statistics.put(num, statistics.get(num) + 1);
         else
             statistics.put(num, 1);
     }
 
-    void addNum(String num) {
+    private static void addNum(String num) {
         curNums.add(num);
     }
 
-    void clearNums() { curNums.clear(); }
+    private static void clearNums() { curNums.clear(); }
 
-    void saveNums() {
+    private static void saveNums() {
         for (String n : curNums) {
             collectNumFAE(n);
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        long m = System.currentTimeMillis();
+        if (args.length != 1 && args.length != 2)
+            throw new Exception("Invalid argument count");
+
+
+        String encodingName = "UTF-8";
+        try {
+            java.nio.charset.Charset.forName(encodingName); // Side-effect: is encodingName valid?
+        } catch (Exception e) {
+            System.out.println("Invalid encoding '" + encodingName + "'");
+            return;
+        }
+
+        RecognizerJF scanner = null;
+        try {
+            java.io.FileInputStream stream = new java.io.FileInputStream(args[0]);
+            java.io.Reader reader = new java.io.InputStreamReader(stream, encodingName);
+            scanner = new RecognizerJF(reader);
+            int retStatus;
+            do {
+                retStatus = scanner.yylex();
+                if (retStatus == 1)
+                    saveNums();
+
+                clearNums();
+                System.out.println(retStatus);
+            } while (!scanner.zzAtEOF);
+
+        }
+        catch (java.io.FileNotFoundException e) {
+            System.out.println("File not found : \""+args[1]+"\"");
+        }
+        catch (java.io.IOException e) {
+            System.out.println("IO error scanning file \""+args[1]+"\"");
+            System.out.println(e);
+        }
+        catch (Exception e) {
+            System.out.println("Unexpected exception:");
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -391,23 +434,6 @@ class RecognizerJF {
       do map[j++] = value; while (--count > 0);
     }
     return map;
-  }
-
-  private static String zzToPrintable(String str) {
-    StringBuilder builder = new StringBuilder();
-    for (int n = 0 ; n < str.length() ; ) {
-      int ch = str.codePointAt(n);
-      int charCount = Character.charCount(ch);
-      n += charCount;
-      if (ch > 31 && ch < 127) {
-        builder.append((char)ch);
-      } else if (charCount == 1) {
-        builder.append(String.format("\\u%04X", ch));
-      } else {
-        builder.append(String.format("\\U%06X", ch));
-      }
-    }
-    return builder.toString();
   }
 
 
@@ -778,152 +804,73 @@ class RecognizerJF {
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
         zzAtEOF = true;
               {
-                System.out.println("line: "+(yyline+1)+" "+"match: <<EOF>>");
-                System.out.println("action [79] { System.out.println(statistics) ;return 3; }");
                 System.out.println(statistics) ;return 3;
               }
       }
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [44] {  }");
             { 
             } 
             // fall through
           case 13: break;
           case 2: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [43] { return 0; }");
             { return 0;
             } 
             // fall through
           case 14: break;
           case 3: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [49] { yybegin(YYINITIAL); }");
             { yybegin(YYINITIAL);
             } 
             // fall through
           case 15: break;
           case 4: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [50] { yybegin(YYINITIAL); return 0; }");
             { yybegin(YYINITIAL); return 0;
             } 
             // fall through
           case 16: break;
           case 5: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [75] { yybegin(YYINITIAL); return 1; }");
             { yybegin(YYINITIAL); return 1;
             } 
             // fall through
           case 17: break;
           case 6: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [54] { yybegin(NUMS_FT); }");
             { yybegin(NUMS_FT);
             } 
             // fall through
           case 18: break;
           case 7: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [68] { yybegin(NUMS_S); }");
             { yybegin(NUMS_S);
             } 
             // fall through
           case 19: break;
           case 8: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [69] { yybegin(BODY); }");
             { yybegin(BODY);
             } 
             // fall through
           case 20: break;
           case 9: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [41] { clearNums(); yybegin(NUMS_FT); }");
             { clearNums(); yybegin(NUMS_FT);
             } 
             // fall through
           case 21: break;
           case 10: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [42] { clearNums(); yybegin(NUMS_S); }");
             { clearNums(); yybegin(NUMS_S);
             } 
             // fall through
           case 22: break;
           case 11: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [48] { addNum(yytext()); yybegin(DELIMETER_FT); }");
             { addNum(yytext()); yybegin(DELIMETER_FT);
             } 
             // fall through
           case 23: break;
           case 12: 
-            System.out.println("line: "+(yyline+1)+" "+"match: --"+zzToPrintable(yytext())+"--");
-            System.out.println("action [62] { addNum(yytext()); yybegin(DELIMETER_S); }");
             { addNum(yytext()); yybegin(DELIMETER_S);
             } 
             // fall through
           case 24: break;
           default:
             zzScanError(ZZ_NO_MATCH);
-        }
-      }
-    }
-  }
-
-  /**
-   * Runs the scanner on input files.
-   *
-   * This main method is the debugging routine for the scanner.
-   * It prints debugging information about each returned token to
-   * System.out until the end of file is reached, or an error occured.
-   *
-   * @param argv   the command line, contains the filenames to run
-   *               the scanner on.
-   */
-  public static void main(String argv[]) {
-    if (argv.length == 0) {
-      System.out.println("Usage : java RecognizerJF [ --encoding <name> ] <inputfile(s)>");
-    }
-    else {
-      int firstFilePos = 0;
-      String encodingName = "UTF-8";
-      if (argv[0].equals("--encoding")) {
-        firstFilePos = 2;
-        encodingName = argv[1];
-        try {
-          java.nio.charset.Charset.forName(encodingName); // Side-effect: is encodingName valid? 
-        } catch (Exception e) {
-          System.out.println("Invalid encoding '" + encodingName + "'");
-          return;
-        }
-      }
-      for (int i = firstFilePos; i < argv.length; i++) {
-        RecognizerJF scanner = null;
-        try {
-          java.io.FileInputStream stream = new java.io.FileInputStream(argv[i]);
-          java.io.Reader reader = new java.io.InputStreamReader(stream, encodingName);
-          scanner = new RecognizerJF(reader);
-          do {
-            System.out.println(scanner.yylex());
-          } while (!scanner.zzAtEOF);
-
-        }
-        catch (java.io.FileNotFoundException e) {
-          System.out.println("File not found : \""+argv[i]+"\"");
-        }
-        catch (java.io.IOException e) {
-          System.out.println("IO error scanning file \""+argv[i]+"\"");
-          System.out.println(e);
-        }
-        catch (Exception e) {
-          System.out.println("Unexpected exception:");
-          e.printStackTrace();
         }
       }
     }
