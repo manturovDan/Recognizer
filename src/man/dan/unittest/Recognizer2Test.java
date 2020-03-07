@@ -3,18 +3,21 @@ package man.dan.unittest;
 import man.dan.smc.*;
 import man.dan.telgen.FieldGenerator;
 import man.dan.telgen.FieldGeneratorIncorrect;
-import man.dan.telrec.Recognizer;
 import man.dan.telrec.RegAnalyzer;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
+import java.util.regex.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class Recognizer2Test {
-    public void fileTCG(int count, String writeF, String ansF) {
+    public String[] getAnswers(String ansF, int count) {
         String[] answers = new String[count];
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ansF))))) {
             String ans;
@@ -23,10 +26,16 @@ class Recognizer2Test {
                 answers[i] = ans + i;
                 i+=1;
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        return answers;
+    }
+
+    public void fileTCG(int count, String writeF, String ansF) {
+        String[] answers = getAnswers(ansF, count);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(writeF))))) {
             RecognizerCodegen regAnl = new RecognizerCodegen();
@@ -46,18 +55,7 @@ class Recognizer2Test {
     }
 
     public void fileT(int count, String writeF, String ansF) {
-        String[] answers = new String[count];
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ansF))))) {
-            String ans;
-            int i = 0;
-            while ((ans = br.readLine()) != null) {
-                answers[i] = ans + i;
-                i+=1;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        String[] answers = getAnswers(ansF, count);
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(writeF))))) {
             RegAnalyzer regAnl = new RegAnalyzer();
@@ -136,5 +134,63 @@ class Recognizer2Test {
             Assert.assertEquals(regAnl.handle(row), answ);
         }
 
+    }
+
+    public HashMap<String, Integer> statGet(String writeF, String ansF, int count) {
+        String[] answers = getAnswers(ansF, count);
+        HashMap<String, Integer> statistics = new HashMap<>();
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(writeF))))) {
+            String line;
+            int i = 0;
+            Pattern patNum = Pattern.compile("(?:([0-9]{11})(?:,|;))");
+
+            while ((line = br.readLine()) != null) {
+                if (answers[i].equals("true" + i)) {
+                    Matcher matchNum = patNum.matcher(line);
+                    while (matchNum.find()) {
+                        if (statistics.containsKey(matchNum.group(1)))
+                            statistics.put(matchNum.group(1), statistics.get(matchNum.group(1)) + 1);
+                        else
+                            statistics.put(matchNum.group(1), 1);
+                    }
+                }
+
+                i+=1;
+            }
+
+            //System.out.println(statistics);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return statistics;
+    }
+
+    public void statAnlTest(String statF) {
+        HashMap<String, Integer> statistics = statGet("k/1kw", "k/1ka", 1000);
+        String line;
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(statF))))) {
+            if ((line = br.readLine()) == null) {
+                throw new IOException();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Assert.fail();
+            return;
+        }
+
+        Pattern patNum = Pattern.compile("(?:([0-9]{11})=([0-9]+))");
+        Matcher matchNum = patNum.matcher(line);
+        while (matchNum.find()) {
+            Assert.assertEquals(statistics.get(matchNum.group(1)), Integer.valueOf(matchNum.group(2)));
+        }
+
+    }
+
+    @Test
+    public void stat1kTest() {
+        statAnlTest("k/1ks");
     }
 }
