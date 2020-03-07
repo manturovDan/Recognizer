@@ -1,5 +1,6 @@
 package man.dan.jflex;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 %%
 
@@ -10,12 +11,26 @@ import java.util.HashMap;
 %line
 
 %{
-    HashMap<String, Integer> statistics = new HashMap<String, Integer>();
-    void addNum(String num) {
+    private HashMap<String, Integer> statistics = new HashMap<String, Integer>();
+    private ArrayList<String> curNums = new ArrayList<String>();
+
+    void collectNumFAE(String num) {
         if (statistics.containsKey(num))
             statistics.put(num, statistics.get(num) + 1);
         else
             statistics.put(num, 1);
+    }
+
+    void addNum(String num) {
+        curNums.add(num);
+    }
+
+    void clearNums() { curNums.clear(); }
+
+    void saveNums() {
+        for (String n : curNums) {
+            collectNumFAE(n);
+        }
     }
 %}
 
@@ -23,8 +38,8 @@ import java.util.HashMap;
 
 %%
     <YYINITIAL> {
-        ^(tel|fax): { yybegin(NUMS_FT); }
-        ^sms: { yybegin(NUMS_S); }
+        ^(tel|fax): { clearNums(); yybegin(NUMS_FT); }
+        ^sms: { clearNums(); yybegin(NUMS_S); }
         \n { return 0; }
         . {}
     }
@@ -37,7 +52,7 @@ import java.util.HashMap;
 
     <DELIMETER_FT> {
         , { yybegin(NUMS_FT); }
-        ;\n { return 1; }
+        ;\n { yybegin(YYINITIAL); return 1; }
         . { yybegin(YYINITIAL); }
         \n { yybegin(YYINITIAL); return 0; }
     }
