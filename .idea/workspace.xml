@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="66923647-bf7c-47a7-bc58-dd2349fd49f4" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="recognizer-jflex" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YLUi0wh2Z6ki5ZBeybgXGcTSkR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="man.dan.unittest" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/man/dan/unittest" />
+      <recent name="$PROJECT_DIR$/src/man/dan/unittest/k" />
+      <recent name="$PROJECT_DIR$/src/man/dan/unittest/10m" />
+      <recent name="$PROJECT_DIR$/src/man/dan/unittest/2k" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="man.dan.smc" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/store" />
+      <recent name="$PROJECT_DIR$/src/man/dan/unittest" />
+      <recent name="$PROJECT_DIR$/src/man/dan/smc" />
+      <recent name="$PROJECT_DIR$/src/man/dan" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Recognizer">
+    <configuration name="Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="man.dan.telgen.Generator" />
+      <module name="Recognizer" />
+      <option name="PROGRAM_PARAMETERS" value="200000 50 store/200k/w200k store/200k/a200k" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.telgen.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Recognizer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="man.dan.telrec.Recognizer" />
+      <module name="Recognizer" />
+      <option name="PROGRAM_PARAMETERS" value="src/man/dan/unittest/5m/5mw src/man/dan/unittest/5m/5mw_c" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecognizerCG" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="man.dan.smc.Recognizer" />
+      <module name="Recognizer" />
+      <option name="PROGRAM_PARAMETERS" value="src/man/dan/unittest/k/1kw src/man/dan/unittest/k/1ks_cg" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.smc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecognizerJF" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="man.dan.jflex.RecognizerJF" />
+      <module name="Recognizer" />
+      <option name="PROGRAM_PARAMETERS" value="src/man/dan/unittest/k/1kw src/man/dan/unittest/k/1ks_l" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.jflex.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecognizerSMC" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="man.dan.smc.Recognizer" />
+      <module name="Recognizer" />
+      <option name="PROGRAM_PARAMETERS" value="store/200k/w200k store/200k/ss200k" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.smc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Recognizer2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Recognizer" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="man.dan.unittest" />
+      <option name="MAIN_CLASS_NAME" value="man.dan.unittest.Recognizer2Test" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/man/dan/unittest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Recognizer2Test.stat1kTestCG" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Recognizer" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="man.dan.unittest" />
+      <option name="MAIN_CLASS_NAME" value="man.dan.unittest.Recognizer2Test" />
+      <option name="METHOD_NAME" value="stat1kTestCG" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/man/dan/unittest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Recognizer2Test.stat1kTestLEX" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Recognizer" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="man.dan.unittest" />
+      <option name="MAIN_CLASS_NAME" value="man.dan.unittest.Recognizer2Test" />
+      <option name="METHOD_NAME" value="stat1kTestLEX" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/man/dan/unittest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Recognizer2Test.stat200kTestLEX" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Recognizer" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="man.dan.unittest" />
+      <option name="MAIN_CLASS_NAME" value="man.dan.unittest.Recognizer2Test" />
+      <option name="METHOD_NAME" value="stat200kTestLEX" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/man/dan/unittest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Recognizer2Test.test200kFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Recognizer" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="man.dan.unittest" />
+      <option name="MAIN_CLASS_NAME" value="man.dan.unittest.Recognizer2Test" />
+      <option name="METHOD_NAME" value="test200kFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/man/dan/unittest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Recognizer2Test.test200kFileCG" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Recognizer" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="man.dan.unittest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="man.dan.unittest" />
+      <option name="MAIN_CLASS_NAME" value="man.dan.unittest.Recognizer2Test" />
+      <option name="METHOD_NAME" value="test200kFileCG" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/man/dan/unittest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Recognizer" />
+      <item itemvalue="Application.RecognizerCG" />
+      <item itemvalue="Application.RecognizerJF" />
+      <item itemvalue="Application.Generator" />
+      <item itemvalue="Application.RecognizerSMC" />
+      <item itemvalue="JUnit.Recognizer2Test.stat200kTestLEX" />
+      <item itemvalue="JUnit.Recognizer2Test.stat1kTestCG" />
+      <item itemvalue="JUnit.Recognizer2Test.stat1kTestLEX" />
+      <item itemvalue="JUnit.Recognizer2Test" />
+      <item itemvalue="JUnit.Recognizer2Test.test200kFileCG" />
+      <item itemvalue="JUnit.Recognizer2Test.test200kFile" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Recognizer2Test" />
+        <item itemvalue="JUnit.Recognizer2Test.test200kFile" />
+        <item itemvalue="JUnit.Recognizer2Test.test200kFileCG" />
+        <item itemvalue="Application.RecognizerSMC" />
+        <item itemvalue="Application.Generator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66923647-bf7c-47a7-bc58-dd2349fd49f4" name="Default Changelist" comment="" />
+      <created>1582721491434</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582721491434</updated>
+      <workItem from="1582721495116" duration="27586000" />
+      <workItem from="1582964990773" duration="25588000" />
+      <workItem from="1583082592937" duration="178000" />
+      <workItem from="1583145614370" duration="36266000" />
+      <workItem from="1583417979287" duration="1615000" />
+      <workItem from="1583442677924" duration="241000" />
+      <workItem from="1583442946709" duration="233000" />
+      <workItem from="1583443194118" duration="33161000" />
+    </task>
+    <task id="LOCAL-00001" summary="start">
+      <created>1582722211440</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582722211441</updated>
+    </task>
+    <task id="LOCAL-00002" summary="UI create">
+      <created>1582726114251</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582726114251</updated>
+    </task>
+    <task id="LOCAL-00003" summary="generate type">
+      <created>1582728767085</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1582728767085</updated>
+    </task>
+    <task id="LOCAL-00004" summary="true generator is ready">
+      <created>1582731745548</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1582731745548</updated>
+    </task>
+    <task id="LOCAL-00005" summary="comma determination">
+      <created>1582748062373</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1582748062373</updated>
+    </task>
+    <task id="LOCAL-00006" summary="incorrect field creating">
+      <created>1582750734646</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1582750734646</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactoring + file creating">
+      <created>1582797525939</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1582797525939</updated>
+    </task>
+    <task id="LOCAL-00008" summary="generate correct file">
+      <created>1582829471391</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582829471391</updated>
+    </task>
+    <task id="LOCAL-00009" summary="generator created">
+      <created>1582833386781</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1582833386781</updated>
+    </task>
+    <task id="LOCAL-00010" summary="recognizer template">
+      <created>1582967822143</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1582967822143</updated>
+    </task>
+    <task id="LOCAL-00011" summary="short files">
+      <created>1582968466996</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1582968466996</updated>
+    </task>
+    <task id="LOCAL-00012" summary="nice field generator">
+      <created>1582975910011</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1582975910011</updated>
+    </task>
+    <task id="LOCAL-00013" summary="delete big">
+      <created>1582975997461</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1582975997461</updated>
+    </task>
+    <task id="LOCAL-00014" summary="incorrect generate without body">
+      <created>1582979797536</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1582979797536</updated>
+    </task>
+    <task id="LOCAL-00015" summary="creating incorrect">
+      <created>1582983188488</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1582983188488</updated>
+    </task>
+    <task id="LOCAL-00016" summary="nice generator">
+      <created>1582983582080</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1582983582080</updated>
+    </task>
+    <task id="LOCAL-00017" summary="debug">
+      <created>1582983973391</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1582983973391</updated>
+    </task>
+    <task id="LOCAL-00018" summary="merge conflict">
+      <created>1582984414724</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1582984414724</updated>
+    </task>
+    <task id="LOCAL-00019" summary="delete excess">
+      <created>1582984827311</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1582984827311</updated>
+    </task>
+    <task id="LOCAL-00020" summary="statistics">
+      <created>1582992091942</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1582992091942</updated>
+    </task>
+    <task id="LOCAL-00021" summary="java processing is ready">
+      <created>1582993858523</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1582993858523</updated>
+    </task>
+    <task id="LOCAL-00022" summary="1/2 ready">
+      <created>1582994229137</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1582994229137</updated>
+    </task>
+    <task id="LOCAL-00023" summary="empty smc">
+      <created>1583146081427</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1583146081427</updated>
+    </task>
+    <task id="LOCAL-00024" summary="smc was built">
+      <created>1583152366278</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1583152366278</updated>
+    </task>
+    <task id="LOCAL-00025" summary="schema and smc corrections">
+      <created>1583154394718</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1583154394718</updated>
+    </task>
+    <task id="LOCAL-00026" summary="transitions">
+      <created>1583172388275</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1583172388275</updated>
+    </task>
+    <task id="LOCAL-00027" summary="correctly generated">
+      <created>1583177220496</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1583177220496</updated>
+    </task>
+    <task id="LOCAL-00028" summary="compiling smc + starting">
+      <created>1583178976012</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1583178976012</updated>
+    </task>
+    <task id="LOCAL-00029" summary="found bug in generator">
+      <created>1583185351949</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1583185351949</updated>
+    </task>
+    <task id="LOCAL-00030" summary="debug">
+      <created>1583185558787</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1583185558787</updated>
+    </task>
+    <task id="LOCAL-00031" summary="before tests">
+      <created>1583187362800</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1583187362800</updated>
+    </task>
+    <task id="LOCAL-00032" summary="tests">
+      <created>1583231701316</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1583231701316</updated>
+    </task>
+    <task id="LOCAL-00033" summary="nice launching">
+      <created>1583234030317</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1583234030317</updated>
+    </task>
+    <task id="LOCAL-00034" summary="debug rex + smc ready">
+      <created>1583236498300</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1583236498300</updated>
+    </task>
+    <task id="LOCAL-00035" summary="jflex">
+      <created>1583418192954</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1583418192954</updated>
+    </task>
+    <task id="LOCAL-00036" summary="jflex run">
+      <created>1583491276970</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1583491276970</updated>
+    </task>
+    <task id="LOCAL-00037" summary="correct matching">
+      <created>1583497554733</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1583497554734</updated>
+    </task>
+    <task id="LOCAL-00038" summary="like jflex ready">
+      <created>1583526056126</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1583526056126</updated>
+    </task>
+    <task id="LOCAL-00039" summary="TODO correct nums collecting">
+      <created>1583528084998</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1583528084998</updated>
+    </task>
+    <task id="LOCAL-00040" summary="recognizer jump">
+      <created>1583576498881</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1583576498881</updated>
+    </task>
+    <task id="LOCAL-00041" summary="zbzs works">
+      <created>1583578212848</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1583578212848</updated>
+    </task>
+    <task id="LOCAL-00042" summary="writing statistics">
+      <created>1583578788088</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1583578788088</updated>
+    </task>
+    <task id="LOCAL-00043" summary="testTable">
+      <created>1583586170528</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1583586170528</updated>
+    </task>
+    <task id="LOCAL-00044" summary="tests passed">
+      <created>1583595143658</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1583595143658</updated>
+    </task>
+    <task id="LOCAL-00045" summary="tests passed and add .idea">
+      <created>1583595228259</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1583595228259</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="java processing is ready" />
+    <MESSAGE value="1/2 ready" />
+    <MESSAGE value="empty smc" />
+    <MESSAGE value="smc was built" />
+    <MESSAGE value="schema and smc corrections" />
+    <MESSAGE value="transitions" />
+    <MESSAGE value="correctly generated" />
+    <MESSAGE value="compiling smc + starting" />
+    <MESSAGE value="found bug in generator" />
+    <MESSAGE value="debug" />
+    <MESSAGE value="before tests" />
+    <MESSAGE value="tests" />
+    <MESSAGE value="nice launching" />
+    <MESSAGE value="debug rex + smc ready" />
+    <MESSAGE value="jflex" />
+    <MESSAGE value="jflex run" />
+    <MESSAGE value="correct matching" />
+    <MESSAGE value="like jflex ready" />
+    <MESSAGE value="TODO correct nums collecting" />
+    <MESSAGE value="recognizer jump" />
+    <MESSAGE value="zbzs works" />
+    <MESSAGE value="writing statistics" />
+    <MESSAGE value="testTable" />
+    <MESSAGE value="tests passed" />
+    <MESSAGE value="tests passed and add .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests passed and add .idea" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1946" y="155" width="898" height="754" key="#All_in_Recognizer" timestamp="1583186268572">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1946" y="155" width="898" height="754" key="#All_in_Recognizer/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583186268572" />
+    <state x="1946" y="186" width="898" height="691" key="#Recognizer2Test" timestamp="1583586652536">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="1946" y="173" width="898" height="717" key="#Recognizer2Test.stat1kTestCG" timestamp="1583595088840">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="1946" y="173" width="898" height="717" key="#Recognizer2Test.stat1kTestCG/0.27.3360.1003@0.27.3360.1003" timestamp="1583595088840" />
+    <state x="1946" y="173" width="898" height="717" key="#Recognizer2Test.stat1kTestLEX" timestamp="1583595105463">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="1946" y="173" width="898" height="717" key="#Recognizer2Test.stat1kTestLEX/0.27.3360.1003@0.27.3360.1003" timestamp="1583595105463" />
+    <state x="1946" y="173" width="898" height="717" key="#Recognizer2Test.stat200kTestCG" timestamp="1583589748310">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="1946" y="173" width="898" height="717" key="#Recognizer2Test.stat200kTestCG/0.27.3360.1003@0.27.3360.1003" timestamp="1583589748310" />
+    <state x="1946" y="173" width="898" height="717" key="#Recognizer2Test.stat200kTestLEX" timestamp="1583595034113">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="1946" y="173" width="898" height="717" key="#Recognizer2Test.stat200kTestLEX/0.27.3360.1003@0.27.3360.1003" timestamp="1583595034113" />
+    <state x="1946" y="186" width="898" height="691" key="#Recognizer2Test/0.27.3360.1003@0.27.3360.1003" timestamp="1583586652536" />
+    <state x="377" y="108" width="676" height="691" key="#RecognizerJF" timestamp="1583591424883">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="377" y="108" width="676" height="691" key="#RecognizerJF/0.27.3360.1003@0.27.3360.1003" timestamp="1583591424883" />
+    <state x="2057" y="186" width="676" height="691" key="#Recognizer_(1)" timestamp="1583588288970">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="2057" y="186" width="676" height="691" key="#Recognizer_(1)/0.27.3360.1003@0.27.3360.1003" timestamp="1583588288970" />
+    <state x="1921" y="125" width="1439" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583594944972">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="602" y="280" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1003@0.27.1920.1003" timestamp="1583495287509" />
+    <state x="1921" y="125" width="1439" height="676" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3360.1003@0.27.3360.1003" timestamp="1583594944972" />
+    <state x="284" y="216" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236455149" />
+    <state x="141" y="196" width="1299" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583233939028" />
+    <state x="100" y="127" width="1720" height="803" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1583216676305">
+      <screen x="0" y="27" width="1440" height="873" />
+    </state>
+    <state x="100" y="127" width="1720" height="803" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583216676305" />
+    <state x="1068" y="208" width="639" height="411" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583443035722">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="1068" y="208" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1920.1003@0.27.1920.1003" timestamp="1583443035722" />
+    <state x="674" y="333" width="639" height="411" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583154361965" />
+    <state x="2123" y="232" width="544" height="599" key="#com.intellij.ide.util.MemberChooser" timestamp="1582968777042">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2123" y="232" width="544" height="599" key="#com.intellij.ide.util.MemberChooser/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1582968777042" />
+    <state x="2128" y="309" width="524" height="451" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1583186471330">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2128" y="309" width="524" height="451" key="#com.intellij.ide.util.PackageChooserDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583186471330" />
+    <state x="826" y="325" width="525" height="435" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1583490001569">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="826" y="325" width="525" height="435" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.1920.1003@0.27.1920.1003" timestamp="1583490001569" />
+    <state x="2266" y="321" width="525" height="435" key="#com.intellij.ide.util.TreeClassChooserDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583178213679" />
+    <state x="1946" y="155" width="898" height="754" key="#man.dan.unittest_in_Recognizer" timestamp="1583186304883">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1946" y="155" width="898" height="754" key="#man.dan.unittest_in_Recognizer/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583186304883" />
+    <state x="1696" y="111" width="865" height="919" key="CommitChangelistDialog2" timestamp="1583595228189">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="523" y="27" width="865" height="919" key="CommitChangelistDialog2/0.27.1920.1003@0.27.1920.1003" timestamp="1583497554656" />
+    <state x="1696" y="111" width="865" height="919" key="CommitChangelistDialog2/0.27.3360.1003@0.27.3360.1003" timestamp="1583595228189" />
+    <state x="392" y="27" width="865" height="873" key="CommitChangelistDialog2/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236498220" />
+    <state x="575" y="27" width="865" height="873" key="CommitChangelistDialog2/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583234030261" />
+    <state x="58" y="280" width="424" height="491" key="FileChooserDialogImpl" timestamp="1583595308416">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="33" y="280" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1003@0.27.1920.1003" timestamp="1583489980989" />
+    <state x="58" y="280" width="424" height="491" key="FileChooserDialogImpl/0.27.3360.1003@0.27.3360.1003" timestamp="1583595308416" />
+    <state x="1473" y="272" width="447" height="520" key="FileChooserDialogImpl/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583231885631" />
+    <state x="2249" y="423" width="426" height="327" key="Github.ShareDialog" timestamp="1582722299747">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2249" y="423" width="426" height="327" key="Github.ShareDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1582722299747" />
+    <state width="1874" height="319" key="GridCell.Tab.0.bottom" timestamp="1583595315719">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state width="1874" height="377" key="GridCell.Tab.0.bottom/0.27.1920.1003@0.27.1920.1003" timestamp="1583498303720" />
+    <state width="1874" height="319" key="GridCell.Tab.0.bottom/0.27.3360.1003@0.27.3360.1003" timestamp="1583595315719" />
+    <state width="1874" height="319" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236802502" />
+    <state width="1874" height="271" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583234147437" />
+    <state width="1874" height="319" key="GridCell.Tab.0.center" timestamp="1583595315717">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state width="1874" height="377" key="GridCell.Tab.0.center/0.27.1920.1003@0.27.1920.1003" timestamp="1583498303719" />
+    <state width="1874" height="319" key="GridCell.Tab.0.center/0.27.3360.1003@0.27.3360.1003" timestamp="1583595315717" />
+    <state width="1874" height="319" key="GridCell.Tab.0.center/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236802502" />
+    <state width="1874" height="271" key="GridCell.Tab.0.center/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583234147437" />
+    <state width="1874" height="319" key="GridCell.Tab.0.left" timestamp="1583595315716">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state width="1874" height="377" key="GridCell.Tab.0.left/0.27.1920.1003@0.27.1920.1003" timestamp="1583498303718" />
+    <state width="1874" height="319" key="GridCell.Tab.0.left/0.27.3360.1003@0.27.3360.1003" timestamp="1583595315716" />
+    <state width="1874" height="319" key="GridCell.Tab.0.left/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236802502" />
+    <state width="1874" height="271" key="GridCell.Tab.0.left/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583234147437" />
+    <state width="1874" height="319" key="GridCell.Tab.0.right" timestamp="1583595315718">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state width="1874" height="377" key="GridCell.Tab.0.right/0.27.1920.1003@0.27.1920.1003" timestamp="1583498303719" />
+    <state width="1874" height="319" key="GridCell.Tab.0.right/0.27.3360.1003@0.27.3360.1003" timestamp="1583595315718" />
+    <state width="1874" height="319" key="GridCell.Tab.0.right/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236802502" />
+    <state width="1874" height="271" key="GridCell.Tab.0.right/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583234147437" />
+    <state width="1874" height="319" key="GridCell.Tab.1.bottom" timestamp="1583595315722">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state width="1874" height="319" key="GridCell.Tab.1.bottom/0.27.1920.1003@0.27.1920.1003" timestamp="1583491740587" />
+    <state width="1874" height="319" key="GridCell.Tab.1.bottom/0.27.3360.1003@0.27.3360.1003" timestamp="1583595315722" />
+    <state width="1874" height="319" key="GridCell.Tab.1.bottom/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236802502" />
+    <state width="1874" height="319" key="GridCell.Tab.1.bottom/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583233322608" />
+    <state width="1874" height="319" key="GridCell.Tab.1.center" timestamp="1583595315720">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state width="1874" height="319" key="GridCell.Tab.1.center/0.27.1920.1003@0.27.1920.1003" timestamp="1583491740586" />
+    <state width="1874" height="319" key="GridCell.Tab.1.center/0.27.3360.1003@0.27.3360.1003" timestamp="1583595315720" />
+    <state width="1874" height="319" key="GridCell.Tab.1.center/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236802502" />
+    <state width="1874" height="319" key="GridCell.Tab.1.center/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583233322608" />
+    <state width="1874" height="319" key="GridCell.Tab.1.left" timestamp="1583595315719">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state width="1874" height="319" key="GridCell.Tab.1.left/0.27.1920.1003@0.27.1920.1003" timestamp="1583491740585" />
+    <state width="1874" height="319" key="GridCell.Tab.1.left/0.27.3360.1003@0.27.3360.1003" timestamp="1583595315719" />
+    <state width="1874" height="319" key="GridCell.Tab.1.left/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236802502" />
+    <state width="1874" height="319" key="GridCell.Tab.1.left/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583233322608" />
+    <state width="1874" height="319" key="GridCell.Tab.1.right" timestamp="1583595315721">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state width="1874" height="319" key="GridCell.Tab.1.right/0.27.1920.1003@0.27.1920.1003" timestamp="1583491740586" />
+    <state width="1874" height="319" key="GridCell.Tab.1.right/0.27.3360.1003@0.27.3360.1003" timestamp="1583595315721" />
+    <state width="1874" height="319" key="GridCell.Tab.1.right/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583236802502" />
+    <state width="1874" height="319" key="GridCell.Tab.1.right/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583233322608" />
+    <state x="1622" y="85" width="1536" height="901" key="MergeDialog" timestamp="1582984176204">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1622" y="85" width="1536" height="901" key="MergeDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1582984176204" />
+    <state x="2105" y="246" width="580" height="571" key="MultipleFileMergeDialog" timestamp="1582984187731">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2105" y="246" width="580" height="571" key="MultipleFileMergeDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1582984187731" />
+    <state x="545" y="183" width="819" height="698" key="NewModule_or_Project.wizard" timestamp="1583441924838">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="545" y="183" width="819" height="698" key="NewModule_or_Project.wizard/0.27.1920.1003@0.27.1920.1003" timestamp="1583441924838" />
+    <state x="449" y="178" width="1022" height="737" key="SettingsEditor" timestamp="1583443176999">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="449" y="178" width="1022" height="737" key="SettingsEditor/0.27.1920.1003@0.27.1920.1003" timestamp="1583443176999" />
+    <state x="1889" y="163" width="1022" height="737" key="SettingsEditor/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583186652288" />
+    <state x="2243" y="444" width="303" height="176" key="VCS.ChangelistChooser" timestamp="1582976125106">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2243" y="444" width="303" height="176" key="VCS.ChangelistChooser/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1582976125106" />
+    <state x="416" y="240" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1583595411132">
+      <screen x="0" y="27" width="1440" height="873" />
+    </state>
+    <state x="555" y="272" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1003@0.27.1920.1003" timestamp="1583497567757" />
+    <state x="1440" y="272" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.3360.1003@0.27.3360.1003" timestamp="1583595230848" />
+    <state x="416" y="240" width="800" height="535" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583595411132" />
+    <state x="640" y="264" width="800" height="535" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583234031509" />
+    <state x="616" y="358" key="com.intellij.ide.util.TipDialog" timestamp="1583442979038">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="616" y="358" key="com.intellij.ide.util.TipDialog/0.27.1920.1003@0.27.1920.1003" timestamp="1583442979038" />
+    <state x="2056" y="356" key="com.intellij.ide.util.TipDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583082596023" />
+    <state x="2072" y="427" width="646" height="231" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1583186648634">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2072" y="427" width="646" height="231" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583186648634" />
+    <state x="728" y="448" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583495197147">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="728" y="448" width="464" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1003@0.27.1920.1003" timestamp="1583495197147" />
+    <state x="2174" y="203" width="442" height="657" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1583186476208">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2174" y="203" width="442" height="657" key="com.intellij.testIntegration.createTest.CreateTestDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583186476208" />
+    <state x="495" y="216" width="920" height="631" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1583491526868">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="495" y="216" width="920" height="631" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.27.1920.1003@0.27.1920.1003" timestamp="1583491526868" />
+    <state x="0" y="27" width="1440" height="846" maximized="true" key="dock-window-1" timestamp="1583589105043">
+      <screen x="0" y="27" width="3360" height="1003" />
+    </state>
+    <state x="0" y="27" width="1440" height="846" maximized="true" key="dock-window-1/0.27.3360.1003@0.27.3360.1003" timestamp="1583589105043" />
+    <state x="0" y="0" width="1440" height="900" key="dock-window-1/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583171638582" />
+    <state x="0" y="0" width="1440" height="789" maximized="true" key="dock-window-2" timestamp="1583179595746">
+      <screen x="0" y="27" width="1440" height="873" />
+    </state>
+    <state x="0" y="0" width="1440" height="789" maximized="true" key="dock-window-2/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583179595746" />
+    <state x="540" y="288" width="481" height="366" key="git4idea.merge.GitMergeDialog" timestamp="1583595394399">
+      <screen x="0" y="27" width="1440" height="873" />
+    </state>
+    <state x="720" y="327" key="git4idea.merge.GitMergeDialog/0.27.1920.1003@0.27.1920.1003" timestamp="1583418050213" />
+    <state x="540" y="288" width="481" height="366" key="git4idea.merge.GitMergeDialog/1440.0.1920.1080/0.27.1440.873@0.27.1440.873" timestamp="1583595394399" />
+    <state x="2160" y="323" width="481" height="420" key="git4idea.merge.GitMergeDialog/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1582994262816" />
+    <state x="269" y="147" width="1372" height="806" key="new project wizard" timestamp="1583423556548">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="269" y="147" key="new project wizard/0.27.1920.1003@0.27.1920.1003" timestamp="1583423556548" />
+    <state x="1709" y="129" width="1372" height="806" key="new project wizard/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1583082769437" />
+    <state x="2063" y="246" width="672" height="678" key="search.everywhere.popup" timestamp="1582979338467">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2063" y="246" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.27.1440.873@1440.0.1920.1080" timestamp="1582979338467" />
+  </component>
+</project>
