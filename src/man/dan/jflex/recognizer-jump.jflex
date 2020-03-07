@@ -2,6 +2,8 @@ package man.dan.jflex;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 %%
 
 %class RecognizerJF
@@ -58,21 +60,39 @@ import java.util.HashMap;
                     saveNums();
 
                 clearNums();
-                System.out.println(retStatus);
+                //System.out.println(retStatus);
             } while (!scanner.zzAtEOF);
 
         }
         catch (java.io.FileNotFoundException e) {
-            System.out.println("File not found : \""+args[1]+"\"");
+            System.out.println("File not found : \""+args[0]+"\"");
         }
         catch (java.io.IOException e) {
-            System.out.println("IO error scanning file \""+args[1]+"\"");
+            System.out.println("IO error scanning file \""+args[0]+"\"");
             System.out.println(e);
         }
         catch (Exception e) {
             System.out.println("Unexpected exception:");
             e.printStackTrace();
         }
+
+
+        if (args.length == 2) {
+            try {
+                PrintWriter writeStat = new PrintWriter(args[1], StandardCharsets.UTF_8);
+                writeStat.println(statistics);
+                writeStat.close();
+                System.out.println("Statistics was saved");
+            } catch (Exception e) {
+                System.out.println("Error writing statistics to file. Writing to System.out");
+                System.out.println(statistics);
+            }
+        }
+        else {
+            System.out.println(statistics);
+        }
+
+        System.out.println("Time of processing: " + ((double) (System.currentTimeMillis() - m))/1000 + " seconds");
 
     }
 %}
@@ -119,4 +139,4 @@ import java.util.HashMap;
         . { yybegin(YYINITIAL); }
     }
 
-    <<EOF>> { System.out.println(statistics) ;return 3; }
+    <<EOF>> { return 3; }
