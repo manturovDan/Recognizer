@@ -1,0 +1,149 @@
+%package man.dan.smc
+
+%class RecognizerCodegen
+
+%access public
+%start MAP_NAME::StartState
+
+%map MAP_NAME %%
+    StartState {
+
+        smallLetter(letter : char)
+        GetHead {
+            addToHead(letter);
+        }
+
+        Default
+        Error {}
+    }
+
+    GetHead {
+        smallLetter(letter : char) [ctxt.isPlaceInHeader()]
+        GetHead {
+            addToHead(letter);
+        }
+
+        colon [ctxt.correctHeader()]
+        InputNum {
+            newNum();
+        }
+
+        Default
+        Error {}
+    }
+
+    InputNum {
+        digit (dig : int) [ctxt.AddNumCorrectness()]
+        InputNum
+        {
+            addDigitToNum(dig);
+        }
+
+        comma [ctxt.endOfNum()]
+        InputNum {
+            saveNum();
+            newNum();
+        }
+
+        semicolon [ctxt.endOfNum()]
+        bodyAvailable {
+            saveNum();
+        }
+
+        Default
+        Error {}
+    }
+
+    bodyAvailable {
+        EOS
+        StartState { rowCorrect(); }
+
+        question [ctxt.isBodyEn()]
+        BodyQ { }
+
+        Default
+        Error {}
+    }
+
+    BodyQ {
+        smallLetter(letter : char) [letter == 'b']
+        BodyB {}
+
+        Default
+        Error {}
+    }
+
+    BodyB {
+        smallLetter(letter : char) [letter == 'o']
+        BodyO {}
+
+        Default
+        Error {}
+    }
+
+    BodyO {
+        smallLetter(letter : char) [letter == 'd']
+        BodyD {}
+
+        Default
+        Error {}
+    }
+
+    BodyD {
+        smallLetter(letter : char) [letter == 'y']
+        BodyY {}
+
+        Default
+        Error {}
+    }
+
+    BodyY {
+        equal
+        inBody {}
+
+        Default
+        Error {}
+    }
+
+    inBody {
+        //we don't save the body and may to do it if we want
+        smallLetter (letter : char) [ctxt.bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        digit (dig : int) [ctxt.bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        bigLetter [ctxt.bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        comma [ctxt.bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        percentOrExclamationoOrDot [ctxt.bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        question [ctxt.bodyInputEnable()]
+        inBody { newBodySymbol(); }
+
+        EOS [ctxt.notEmptyBody()]
+        StartState { rowCorrect(); }
+
+        Default
+        Error {}
+    }
+
+    Correct {
+        Default
+        StartState { }
+    }
+
+    Error {
+        error
+        nil {}
+
+        EOS
+        StartState { }
+    }
+
+    NextState {}
+%%
